@@ -53,7 +53,7 @@ export default function PoliciesContent() {
               online form.
             </p>
             <a
-              href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAJ2RgroUMUo3WUpIVEZLSFdPRk9OMkJZOE5FVzVQRy4u"
+              href="https://forms.office.com/Pages/ResponsePage.aspx?id=LnAH2hifXEifCtrHG2Cua2Zml3B_66hLotLpEsfOwcBURVY4WTlPWURSNklMQTc5MVgwSVNXMk1YMSQlQCN0PWcu"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-teal px-6 py-3 font-medium text-white transition-all hover:bg-brand-teal-dark hover:shadow-lg"
@@ -162,7 +162,7 @@ export default function PoliciesContent() {
           </div>
           <div className="space-y-4 text-brand-gray">
             <p className="leading-relaxed">
-              Customers can submit incident reports via our online form.
+              Customers can submit incident reports by contacting us directly.
               Innogreen prioritizes response and resolution focused on safety
               and satisfaction.
             </p>
@@ -172,13 +172,11 @@ export default function PoliciesContent() {
               participants and staff.
             </p>
             <a
-              href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAJ2RgroURTdCUDRGT1NJWUVCV0FKTktFOEFDMlJXTC4u"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:info@innogreentech.com.au"
               className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-blue px-6 py-3 font-medium text-white transition-all hover:bg-brand-blue/90 hover:shadow-lg"
             >
-              <IoAlertCircleOutline className="h-5 w-5" />
-              Submit Incident Report
+              <IoMailOutline className="h-5 w-5" />
+              Contact: info@innogreentech.com.au
             </a>
           </div>
         </AnimatedSection>
@@ -234,7 +232,7 @@ export default function PoliciesContent() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <a
-              href="https://static1.squarespace.com/static/6255a63df7ccc9481d98ea52/t/6255b14d3e006a6fc3a24c66/1649759565815/Feedback+and+Complaint+Easy-Read+Policy.pdf"
+              href="/Feedback+and+complaint+(easy+read).pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-xl border border-brand-border bg-white p-4 transition-all hover:border-brand-teal hover:shadow-lg"
@@ -248,7 +246,7 @@ export default function PoliciesContent() {
               </div>
             </a>
             <a
-              href="https://static1.squarespace.com/static/6255a63df7ccc9481d98ea52/t/6255b14d3e006a6fc3a24c5b/1649759565806/Privacy+and+Confidentiality+Policy.pdf"
+              href="/Privacy+and+confidentiality+policy.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-xl border border-brand-border bg-white p-4 transition-all hover:border-brand-teal hover:shadow-lg"
@@ -262,7 +260,7 @@ export default function PoliciesContent() {
               </div>
             </a>
             <a
-              href="https://static1.squarespace.com/static/6255a63df7ccc9481d98ea52/t/6255b14d3e006a6fc3a24c62/1649759565813/Conflict+of+Interest+Policy.pdf"
+              href="/Conflict+of+interest+(easy+read).pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-xl border border-brand-border bg-white p-4 transition-all hover:border-brand-teal hover:shadow-lg"
@@ -272,11 +270,11 @@ export default function PoliciesContent() {
                 <p className="font-medium text-brand-slate">
                   Conflict of Interest
                 </p>
-                <p className="text-sm text-brand-gray">Full Policy (PDF)</p>
+                <p className="text-sm text-brand-gray">Easy-Read Version (PDF)</p>
               </div>
             </a>
             <a
-              href="https://static1.squarespace.com/static/6255a63df7ccc9481d98ea52/t/6255b14d3e006a6fc3a24c5d/1649759565807/Incident+Management+Policy.pdf"
+              href="/Incident+management+(easy+read).pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-xl border border-brand-border bg-white p-4 transition-all hover:border-brand-teal hover:shadow-lg"
@@ -286,11 +284,11 @@ export default function PoliciesContent() {
                 <p className="font-medium text-brand-slate">
                   Incident Management
                 </p>
-                <p className="text-sm text-brand-gray">Full Policy (PDF)</p>
+                <p className="text-sm text-brand-gray">Easy-Read Version (PDF)</p>
               </div>
             </a>
             <a
-              href="https://static1.squarespace.com/static/6255a63df7ccc9481d98ea52/t/6255b14d3e006a6fc3a24c5f/1649759565809/Infection+Control+Policy.pdf"
+              href="/Infection+control+(easy+read).pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-xl border border-brand-border bg-white p-4 transition-all hover:border-brand-teal hover:shadow-lg"
@@ -298,7 +296,7 @@ export default function PoliciesContent() {
               <IoDocumentTextOutline className="h-8 w-8 shrink-0 text-brand-green" />
               <div>
                 <p className="font-medium text-brand-slate">Infection Control</p>
-                <p className="text-sm text-brand-gray">Full Policy (PDF)</p>
+                <p className="text-sm text-brand-gray">Easy-Read Version (PDF)</p>
               </div>
             </a>
           </div>
