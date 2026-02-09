@@ -172,11 +172,13 @@ export default function PoliciesContent() {
               participants and staff.
             </p>
             <a
-              href="mailto:info@innogreentech.com.au"
+              href="https://forms.cloud.microsoft/r/R3dePXfPmH"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 rounded-lg bg-brand-blue px-6 py-3 font-medium text-white transition-all hover:bg-brand-blue/90 hover:shadow-lg"
             >
-              <IoMailOutline className="h-5 w-5" />
-              Contact: info@innogreentech.com.au
+              <IoAlertCircleOutline className="h-5 w-5" />
+              Submit Incident Report
             </a>
           </div>
         </AnimatedSection>

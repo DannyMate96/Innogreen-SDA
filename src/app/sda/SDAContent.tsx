@@ -60,7 +60,7 @@ const properties = [
   },
   {
     name: "The Milano Leederville",
-    location: "220 Carr Place, Leederville",
+    location: "212 Carr Place, Leederville",
     type: "High Physical Support",
     bedrooms: 2,
     image: "/images/Leederville.png",
