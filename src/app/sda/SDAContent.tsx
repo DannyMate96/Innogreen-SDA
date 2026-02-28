@@ -41,6 +41,7 @@ const properties = [
       "300m from Sherwood Train Station",
     ],
     status: "Available",
+    propertyUrl: "https://innogreenhomes.com.au/armadale",
   },
   {
     name: "Butterleaf Retreat",
@@ -57,6 +58,7 @@ const properties = [
       "Near Baldivis Shopping Centre",
     ],
     status: "Available",
+    propertyUrl: "https://innogreenhomes.com.au/Baldivis",
   },
   {
     name: "The Milano Leederville",
@@ -73,6 +75,7 @@ const properties = [
       "400m to Leederville Train Station",
     ],
     status: "Available",
+    propertyUrl: "https://innogreenhomes.com.au/leederville",
   },
   {
     name: "Mangini Apartments Morley",
@@ -89,6 +92,7 @@ const properties = [
       "Near Morley Galleria Shopping Centre",
     ],
     status: "Available",
+    propertyUrl: "https://innogreenhomes.com.au/morley",
   },
 ];
 
@@ -341,12 +345,14 @@ export default function SDAContent() {
                       ))}
                     </ul>
 
-                    <Link
-                      href="/contact"
+                    <a
+                      href={property.propertyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-3 sm:mt-4 inline-flex min-h-[36px] sm:min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-brand-teal-dark"
                     >
-                      Enquire
-                    </Link>
+                      Find Out More
+                    </a>
                   </div>
                 </div>
               </AnimatedSection>
