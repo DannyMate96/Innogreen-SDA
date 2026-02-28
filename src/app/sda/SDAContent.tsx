@@ -203,6 +203,97 @@ export default function SDAContent() {
         </div>
       </section>
 
+      {/* Available Properties */}
+      <section
+        className="bg-brand-bg-alt py-20 lg:py-28"
+        aria-labelledby="properties-heading"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-12 text-center">
+            <h2
+              id="properties-heading"
+              className="text-3xl font-bold text-brand-slate sm:text-4xl"
+            >
+              Available Properties
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-gray">
+              Explore our current SDA properties in Perth
+            </p>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
+            {properties.map((property, index) => (
+              <AnimatedSection key={property.name} delay={index * 0.1}>
+                <div className="card-hover flex h-full flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-brand-border bg-white shadow-sm">
+                  {/* Property image */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={property.image}
+                      alt={`${property.name} - SDA property in ${property.location}`}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                    <span
+                      className={`absolute right-2 top-2 sm:right-3 sm:top-3 rounded-full px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold ${
+                        property.status === "Available"
+                          ? "bg-brand-green text-white"
+                          : "bg-amber-100 text-amber-700"
+                      }`}
+                    >
+                      {property.status}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-3 sm:p-5">
+                    <h3 className="text-sm sm:text-lg font-bold text-brand-slate line-clamp-2">
+                      {property.name}
+                    </h3>
+
+                    <div className="mt-2 sm:mt-3 flex flex-col gap-1 text-xs sm:text-sm text-brand-gray">
+                      <span className="flex items-center gap-1">
+                        <IoLocationOutline className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
+                        <span className="line-clamp-1">{property.location}</span>
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <IoBedOutline className="h-3 w-3 sm:h-4 sm:w-4" />
+                        {property.bedrooms} Bed{property.bedrooms > 1 ? "s" : ""}
+                      </span>
+                    </div>
+
+                    <span className="mt-2 sm:mt-3 inline-flex w-fit items-center rounded-full bg-brand-teal/10 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold text-brand-teal">
+                      {property.type}
+                    </span>
+
+                    {/* Features - hidden on mobile, visible on sm+ */}
+                    <ul className="mt-3 hidden sm:flex flex-1 flex-col space-y-1.5" role="list">
+                      {property.features.slice(0, 4).map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-start gap-2 text-xs text-brand-gray"
+                        >
+                          <IoCheckmarkCircleOutline className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-green" />
+                          <span className="line-clamp-1">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href={property.propertyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 sm:mt-4 inline-flex min-h-[36px] sm:min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-brand-teal-dark"
+                    >
+                      Find Out More
+                    </a>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* What is SDA */}
       <section
         className="bg-white py-20 lg:py-28"
@@ -266,97 +357,6 @@ export default function SDAContent() {
                 ))}
               </div>
             </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Available Properties */}
-      <section
-        className="bg-brand-bg-alt py-20 lg:py-28"
-        aria-labelledby="properties-heading"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-12 text-center">
-            <h2
-              id="properties-heading"
-              className="text-3xl font-bold text-brand-slate sm:text-4xl"
-            >
-              Available Properties
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-gray">
-              Explore our current SDA properties in Perth
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
-            {properties.map((property, index) => (
-              <AnimatedSection key={property.name} delay={index * 0.1}>
-                <div className="card-hover flex h-full flex-col overflow-hidden rounded-xl sm:rounded-2xl border border-brand-border bg-white shadow-sm">
-                  {/* Property image */}
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={property.image}
-                      alt={`${property.name} - SDA property in ${property.location}`}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 25vw"
-                    />
-                    <span
-                      className={`absolute right-2 top-2 sm:right-3 sm:top-3 rounded-full px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold ${
-                        property.status === "Available"
-                          ? "bg-brand-green text-white"
-                          : "bg-amber-100 text-amber-700"
-                      }`}
-                    >
-                      {property.status}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-1 flex-col p-3 sm:p-5">
-                    <h3 className="text-sm sm:text-lg font-bold text-brand-slate line-clamp-2">
-                      {property.name}
-                    </h3>
-
-                    <div className="mt-2 sm:mt-3 flex flex-col sm:flex-row sm:flex-wrap gap-1 sm:gap-3 text-xs sm:text-sm text-brand-gray">
-                      <span className="flex items-center gap-1">
-                        <IoLocationOutline className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
-                        <span className="line-clamp-1">{property.location}</span>
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <IoBedOutline className="h-3 w-3 sm:h-4 sm:w-4" />
-                        {property.bedrooms} Bed{property.bedrooms > 1 ? "s" : ""}
-                      </span>
-                    </div>
-
-                    <span className="mt-2 sm:mt-3 inline-flex w-fit items-center rounded-full bg-brand-teal/10 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold text-brand-teal">
-                      {property.type}
-                    </span>
-
-                    {/* Features - hidden on mobile, visible on sm+ */}
-                    <ul className="mt-3 hidden sm:flex flex-1 flex-col space-y-1.5" role="list">
-                      {property.features.slice(0, 4).map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-start gap-2 text-xs text-brand-gray"
-                        >
-                          <IoCheckmarkCircleOutline className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-green" />
-                          <span className="line-clamp-1">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <a
-                      href={property.propertyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 sm:mt-4 inline-flex min-h-[36px] sm:min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-brand-teal-dark"
-                    >
-                      Find Out More
-                    </a>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
           </div>
         </div>
       </section>
