@@ -58,7 +58,7 @@ const properties = [
       "Near Baldivis Shopping Centre",
     ],
     status: "Available",
-    propertyUrl: "https://innogreenhomes.com.au/Baldivis",
+    propertyUrl: "https://innogreenhomes.com.au/baldivis",
   },
   {
     name: "The Milano Leederville",

@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/Baldivis",
-        destination: "https://innogreenhomes.com.au/Baldivis",
+        destination: "https://innogreenhomes.com.au/baldivis",
         permanent: true,
       },
       {
