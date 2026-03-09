@@ -49,21 +49,12 @@ export const metadata: Metadata = {
     title: "Innogreen | Smart, Secure & Accessible Homes in Perth",
     description:
       "Licensed property management and registered NDIS provider specialising in Smart Home technology and Specialist Disability Accommodation (SDA) in Perth, WA.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Innogreen - Smart, Secure & Accessible Homes in Perth, Western Australia",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Innogreen | Smart, Secure & Accessible Homes in Perth",
     description:
       "Licensed property management and registered NDIS provider specialising in Smart Home technology and SDA in Perth, WA.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -130,7 +121,7 @@ const jsonLd = {
     },
   },
   priceRange: "$$",
-  image: "/og-image.jpg",
+  image: "https://innogreen.net.au/opengraph-image",
   knowsAbout: [
     "NDIS",
     "Specialist Disability Accommodation",
