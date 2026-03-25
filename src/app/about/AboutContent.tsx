@@ -65,14 +65,14 @@ const accreditations = [
     title: "REIWA Member",
     detail:
       "Proud member of the Real Estate Institute of Western Australia, committed to the industry's highest ethical and professional standards.",
-    number: "",
+    number: "Member No: 562753",
   },
   {
     icon: IoGlobeOutline,
-    title: "Be Connected Network Partner",
+    title: "WA Police Security Agent",
     detail:
-      "Partner of the Australian Government's Be Connected program, helping older Australians get online and use technology safely.",
-    number: "Partner No: 8006518",
+      "Licensed security agent under the WA Police, meeting the highest standards for safety and security services.",
+    number: "Agent No: 72864",
   },
 ];
 
@@ -326,15 +326,15 @@ export default function AboutContent() {
                   1800 123 000
                 </a>
                 <a
-                  href="mailto:info@innogreentech.com.au"
+                  href="mailto:info@innogreen.net.au"
                   className="flex items-center gap-2 text-white/90 hover:text-white"
                 >
                   <IoMailOutline className="h-5 w-5" />
-                  info@innogreentech.com.au
+                  info@innogreen.net.au
                 </a>
                 <span className="flex items-center gap-2 text-white/90">
                   <IoLocationOutline className="h-5 w-5" />
-                  212 Carr Place, Leederville WA 6007
+                  C1A 15/212 Carr Place, Leederville WA 6007
                 </span>
               </div>
               <div className="mt-8">

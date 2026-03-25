@@ -24,12 +24,12 @@ const trustBadges = [
   {
     icon: IoRibbonOutline,
     label: "REIWA Member",
-    value: "",
+    value: "562753",
   },
   {
     icon: IoGlobeOutline,
-    label: "Be Connected Network Partner",
-    value: "8006518",
+    label: "WA Police Security Agent",
+    value: "72864",
   },
 ];
 

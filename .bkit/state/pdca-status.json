@@ -1,0 +1,265 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-03-25T15:01:36.600Z",
+  "activeFeatures": [
+    "innogreen-website",
+    "sda",
+    "smart-homes",
+    "about",
+    "contact"
+  ],
+  "primaryFeature": "innogreen-website",
+  "features": {
+    "innogreen-website": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-09T16:33:28.267Z",
+        "lastUpdated": "2026-03-25T15:01:19.191Z"
+      },
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\components\\Footer.tsx"
+    },
+    "sda": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-25T15:00:19.664Z",
+        "lastUpdated": "2026-03-25T15:00:24.693Z"
+      },
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\app\\sda\\SDAContent.tsx"
+    },
+    "smart-homes": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-25T15:00:30.320Z",
+        "lastUpdated": "2026-03-25T15:00:35.343Z"
+      },
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\app\\smart-homes\\SmartHomesContent.tsx"
+    },
+    "about": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-25T15:01:02.905Z",
+        "lastUpdated": "2026-03-25T15:01:11.933Z"
+      },
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\app\\about\\AboutContent.tsx"
+    },
+    "contact": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-25T15:01:23.196Z",
+        "lastUpdated": "2026-03-25T15:01:36.600Z"
+      },
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\app\\contact\\ContactContent.tsx"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-03-09T16:32:21.743Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-03-25T15:01:36.600Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-03-09T16:33:28.267Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-09T16:33:35.230Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-09T16:33:39.601Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-09T16:34:23.904Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T14:59:39.984Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T14:59:44.448Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T14:59:48.509Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T14:59:51.865Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T14:59:56.046Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:00.649Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:06.528Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:11.149Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:14.881Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:19.664Z",
+      "feature": "sda",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:24.693Z",
+      "feature": "sda",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:30.320Z",
+      "feature": "smart-homes",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:35.343Z",
+      "feature": "smart-homes",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:44.305Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:48.408Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:00:55.253Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:02.905Z",
+      "feature": "about",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:06.418Z",
+      "feature": "about",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:11.933Z",
+      "feature": "about",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:15.846Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:19.191Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:23.196Z",
+      "feature": "contact",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:27.681Z",
+      "feature": "contact",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:32.016Z",
+      "feature": "contact",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-25T15:01:36.600Z",
+      "feature": "contact",
+      "phase": "do",
+      "action": "updated"
+    }
+  ]
+}

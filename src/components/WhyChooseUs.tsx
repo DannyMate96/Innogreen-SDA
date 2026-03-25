@@ -25,7 +25,7 @@ const differentiators = [
     points: [
       "Licensed real estate agency",
       "REIWA member",
-      "Be Connected network partner",
+      "WA Police Security Agent 72864",
       "Perth-based local knowledge",
     ],
   },
@@ -34,7 +34,7 @@ const differentiators = [
     title: "Technology Leaders",
     points: [
       "Smart home specialists",
-      "SCC technology certified",
+      "Low cost AT options",
       "Latest automation solutions",
       "Accessible tech focus",
     ],

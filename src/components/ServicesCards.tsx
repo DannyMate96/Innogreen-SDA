@@ -25,7 +25,7 @@ const services = [
     image: "/images/smart-home-voice.jpg",
     features: [
       { icon: HiOutlineMicrophone, text: "Voice-controlled home automation" },
-      { icon: HiOutlineCog, text: "Smart Communication & Control (SCC)" },
+      { icon: HiOutlineCog, text: "Environmental Control Units (ECU)" },
       { icon: HiOutlineShieldCheck, text: "Security and safety systems" },
       { icon: HiOutlineDeviceMobile, text: "Integration with existing devices" },
       { icon: HiOutlineCog, text: "24/7 support and monitoring" },

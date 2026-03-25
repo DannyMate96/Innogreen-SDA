@@ -62,9 +62,9 @@ const services = [
   },
   {
     icon: HiOutlineChat,
-    title: "Smart Communication & Control (SCC)",
+    title: "Environmental Control Units (ECU)",
     description:
-      "NDIS-funded communication technology that connects you with family, carers, and support services.",
+      "NDIS-funded environmental control technology that connects your home systems for greater independence.",
     features: [
       "Video calling integration",
       "Emergency communication systems",
@@ -133,7 +133,7 @@ const faqs = [
   {
     question: "Is smart home technology covered by NDIS funding?",
     answer:
-      "Yes, many smart home solutions fall under NDIS Assistive Technology or Home Modifications categories. Smart Communication and Control (SCC) technology is specifically funded under the NDIS. We can help you understand what's covered in your plan.",
+      "Yes, many smart home solutions fall under NDIS Assistive Technology or Home Modifications categories. Environmental Control Units (ECU) technology is specifically funded under the NDIS. We can help you understand what's covered in your plan.",
   },
   {
     question: "Do I need to replace all my existing devices?",

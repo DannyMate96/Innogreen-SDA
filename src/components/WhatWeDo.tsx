@@ -23,12 +23,12 @@ const credentials = [
   {
     icon: IoRibbonOutline,
     title: "REIWA Member",
-    detail: "Real Estate Institute of WA",
+    detail: "Member No: 562753",
   },
   {
     icon: IoGlobeOutline,
-    title: "Be Connected",
-    detail: "Network Partner: 8006518",
+    title: "WA Police Security Agent",
+    detail: "Agent No: 72864",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function WhatWeDo() {
               Based in Perth, Innogreen offers smart, secure and accessible
               homes. We are a licensed property management agency and registered
               NDIS provider, specialising in the delivery and support of Smart
-              Home and SCC (Smart Communication and Control) technology.
+              Home and ECU (Environmental Control Units) technology.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-brand-gray">
               Our goal is to help all Australians, including people with

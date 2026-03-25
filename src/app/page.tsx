@@ -7,7 +7,6 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import LocationAreas from "@/components/LocationAreas";
 import SeniorServices from "@/components/SeniorServices";
 import Testimonials from "@/components/Testimonials";
-import Credentials from "@/components/Credentials";
 import CallToAction from "@/components/CallToAction";
 
 export default function HomePage() {
@@ -22,7 +21,6 @@ export default function HomePage() {
       <LocationAreas />
       <SeniorServices />
       <Testimonials />
-      <Credentials />
       <CallToAction />
     </>
   );

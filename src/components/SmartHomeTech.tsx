@@ -26,7 +26,7 @@ const techFeatures = [
     features: [
       "Smart locks and access control",
       "Video doorbells and cameras",
-      "Emergency alert systems",
+      "Automated doors",
     ],
   },
   {
@@ -42,7 +42,7 @@ const techFeatures = [
     icon: HiOutlineChat,
     title: "Communication",
     features: [
-      "Smart Communication & Control (SCC)",
+      "Environmental Control Units (ECU)",
       "Video calling integration",
       "Family connection features",
     ],

@@ -23,14 +23,14 @@ const contactInfo = [
   {
     icon: IoMailOutline,
     label: "Email",
-    value: "info@innogreentech.com.au",
-    href: "mailto:info@innogreentech.com.au",
+    value: "info@innogreen.net.au",
+    href: "mailto:info@innogreen.net.au",
   },
   {
     icon: IoLocationOutline,
     label: "Address",
-    value: "212 Carr Place, Leederville WA 6007",
-    href: "https://maps.google.com/?q=212+Carr+Place+Leederville+WA+6007",
+    value: "C1A 15/212 Carr Place, Leederville WA 6007",
+    href: "https://maps.google.com/?q=C1A+15/212+Carr+Place+Leederville+WA+6007",
   },
   {
     icon: IoTimeOutline,
@@ -325,7 +325,7 @@ export default function ContactContent() {
                       Licensed Real Estate Agency: RA82486
                     </p>
                     <p className="mt-1 text-xs text-brand-gray-light">
-                      REIWA Member | Be Connected Partner
+                      REIWA Member | WA Police Security Agent 72864
                     </p>
                   </div>
                 </div>
@@ -347,7 +347,7 @@ export default function ContactContent() {
               metropolitan area
             </p>
             <p className="mt-2 text-sm text-brand-gray">
-              212 Carr Place, Leederville WA 6007
+              C1A 15/212 Carr Place, Leederville WA 6007
             </p>
             <div className="mt-8 overflow-hidden rounded-2xl border border-brand-border">
               <iframe
@@ -358,7 +358,7 @@ export default function ContactContent() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Innogreen office location - 212 Carr Place, Leederville WA 6007"
+                title="Innogreen office location - C1A 15/212 Carr Place, Leederville WA 6007"
               />
             </div>
           </AnimatedSection>

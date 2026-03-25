@@ -123,16 +123,16 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@innogreentech.com.au"
+                  href="mailto:info@innogreen.net.au"
                   className="flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-brand-teal"
                 >
                   <IoMailOutline className="h-4 w-4 shrink-0" />
-                  info@innogreentech.com.au
+                  info@innogreen.net.au
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
                 <IoLocationOutline className="h-4 w-4 shrink-0" />
-                212 Carr Place, Leederville WA 6007
+                C1A 15/212 Carr Place, Leederville WA 6007
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
                 <IoTimeOutline className="h-4 w-4 shrink-0" />

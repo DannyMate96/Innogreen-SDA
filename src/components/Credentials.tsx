@@ -22,12 +22,12 @@ const badges = [
   {
     icon: IoRibbonOutline,
     title: "REIWA Member",
-    detail: "Real Estate Institute of WA",
+    detail: "Member No: 562753",
   },
   {
     icon: IoGlobeOutline,
-    title: "Be Connected Network",
-    detail: "Partner No: 8006518",
+    title: "WA Police Security Agent",
+    detail: "Agent No: 72864",
   },
 ];
 

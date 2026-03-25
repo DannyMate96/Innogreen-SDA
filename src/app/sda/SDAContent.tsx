@@ -158,7 +158,7 @@ export default function SDAContent() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0" aria-hidden="true">
           <Image
-            src="/images/community-perth.jpg"
+            src="/images/1.png"
             alt=""
             fill
             className="object-cover"
@@ -395,7 +395,7 @@ export default function SDAContent() {
               {
                 icon: IoWifiOutline,
                 title: "Connected Living",
-                desc: "High-speed internet ready, SCC technology, and video calling",
+                desc: "High-speed internet ready, ECU technology, and video calling",
               },
               {
                 icon: IoSunnyOutline,

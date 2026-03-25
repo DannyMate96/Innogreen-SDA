@@ -16,7 +16,7 @@ const features = [
   { icon: TbSolarPanel, label: "Solar panels & energy efficient" },
   { icon: IoAccessibilityOutline, label: "Accessible design (High Physical Support)" },
   { icon: IoLocationOutline, label: "Well-located Perth areas" },
-  { icon: IoPeopleOutline, label: "Single & two-resident options" },
+  { icon: IoPeopleOutline, label: "Single, two and three resident options" },
   { icon: IoCheckmarkCircleOutline, label: "NDIS SDA funding accepted" },
 ];
 
