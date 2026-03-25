@@ -11,10 +11,10 @@ const testimonials = [
   {
     quote:
       "Matt arrived on time and quickly installed the door bell. He was very good and patient explaining how it all worked and he also submitted the required paperwork for the WA Seniors Card Safety & Security Rebate Application.",
-    name: "Google Reviewer",
+    name: "Linda O'Brien",
     context: "5 months ago",
     rating: 5,
-    initials: "G",
+    initials: "L",
     color: "bg-gray-500",
   },
   {
