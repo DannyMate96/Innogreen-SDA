@@ -42,7 +42,7 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src="/images/hero-home.jpg"
+          src="/images/Web Image 5.png"
           alt=""
           fill
           className="object-cover"

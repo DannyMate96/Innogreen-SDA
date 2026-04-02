@@ -205,7 +205,7 @@ export default function SmartHomesContent() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0" aria-hidden="true">
           <Image
-            src="/images/modern-living.jpg"
+            src="/images/Web Image 3.png"
             alt=""
             fill
             className="object-cover"

@@ -29,7 +29,7 @@ export default function InnoGreenHomes() {
       {/* Background image */}
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src="/images/accessible-home.jpg"
+          src="/images/Web Image 4.png"
           alt=""
           fill
           className="object-cover"

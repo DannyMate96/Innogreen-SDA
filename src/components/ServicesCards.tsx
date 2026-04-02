@@ -22,7 +22,7 @@ const services = [
     title: "Smart Homes",
     description:
       "We supply, install & integrate easy-to-use smart homes, tailored for you and your existing devices",
-    image: "/images/smart-home-voice.jpg",
+    image: "/images/Web Image 3.png",
     features: [
       { icon: HiOutlineMicrophone, text: "Voice-controlled home automation" },
       { icon: HiOutlineCog, text: "Environmental Control Units (ECU)" },
@@ -39,7 +39,7 @@ const services = [
     title: "Specialist Disability Accommodation (SDA)",
     description:
       "Specialist Disability Accommodation (SDA) through our Innogreen Homes brand",
-    image: "/images/modern-living.jpg",
+    image: "/images/Web Image 8.png",
     features: [
       { icon: HiOutlineHome, text: "Purpose-built accessible design" },
       { icon: TbSmartHome, text: "Smart home tech included" },

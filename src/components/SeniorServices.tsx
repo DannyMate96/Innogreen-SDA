@@ -50,7 +50,7 @@ export default function SeniorServices() {
           <AnimatedSection>
             <div className="mb-8 overflow-hidden rounded-2xl">
               <Image
-                src="/images/elderly-smartphone.jpg"
+                src="/images/Web Image 2.png"
                 alt="Elderly woman being assisted with smartphone technology"
                 width={600}
                 height={340}

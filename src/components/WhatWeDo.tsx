@@ -66,7 +66,7 @@ export default function WhatWeDo() {
           <AnimatedSection delay={0.2}>
             <div className="overflow-hidden rounded-2xl">
               <Image
-                src="/images/smart-home-tablet.jpg"
+                src="/images/Web Image 6.png"
                 alt="Smart lock being controlled via smartphone app"
                 width={600}
                 height={340}

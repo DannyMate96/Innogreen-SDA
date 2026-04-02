@@ -140,7 +140,7 @@ export default function AboutContent() {
             <AnimatedSection delay={0.2}>
               <div className="overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/about-team.jpg"
+                  src="/images/Web Image 1.png"
                   alt="Innogreen team working on smart home solutions"
                   width={600}
                   height={400}
