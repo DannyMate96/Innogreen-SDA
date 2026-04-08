@@ -1,12 +1,15 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-03-25T15:01:36.600Z",
+  "lastUpdated": "2026-04-08T12:02:38.021Z",
   "activeFeatures": [
     "innogreen-website",
     "sda",
     "smart-homes",
     "about",
-    "contact"
+    "contact",
+    "ot-resource-centre",
+    "blog",
+    "[slug]"
   ],
   "primaryFeature": "innogreen-website",
   "features": {
@@ -19,9 +22,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-03-09T16:33:28.267Z",
-        "lastUpdated": "2026-03-25T15:01:19.191Z"
+        "lastUpdated": "2026-04-08T11:47:49.870Z"
       },
-      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\components\\Footer.tsx"
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\components\\InnoGreenHomes.tsx"
     },
     "sda": {
       "phase": "do",
@@ -74,6 +77,45 @@
         "lastUpdated": "2026-03-25T15:01:36.600Z"
       },
       "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\app\\contact\\ContactContent.tsx"
+    },
+    "ot-resource-centre": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-08T11:36:38.866Z",
+        "lastUpdated": "2026-04-08T11:37:40.756Z"
+      },
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\app\\ot-resource-centre\\OTResourceContent.tsx"
+    },
+    "blog": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-08T11:37:48.167Z",
+        "lastUpdated": "2026-04-08T11:38:06.693Z"
+      },
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\app\\blog\\BlogList.tsx"
+    },
+    "[slug]": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-04-08T11:38:16.011Z",
+        "lastUpdated": "2026-04-08T12:02:38.021Z"
+      },
+      "lastFile": "C:\\Users\\midmi\\AI Projects\\innogreen-website\\src\\app\\blog\\[slug]\\page.tsx"
     }
   },
   "pipeline": {
@@ -84,7 +126,7 @@
   "session": {
     "startedAt": "2026-03-09T16:32:21.743Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-03-25T15:01:36.600Z"
+    "lastActivity": "2026-04-08T12:02:38.021Z"
   },
   "history": [
     {
@@ -258,6 +300,150 @@
     {
       "timestamp": "2026-03-25T15:01:36.600Z",
       "feature": "contact",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:36:25.629Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:36:38.867Z",
+      "feature": "ot-resource-centre",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:37:40.756Z",
+      "feature": "ot-resource-centre",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:37:48.167Z",
+      "feature": "blog",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:38:06.693Z",
+      "feature": "blog",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:38:16.011Z",
+      "feature": "[slug]",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:38:45.341Z",
+      "feature": "[slug]",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:38:54.443Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:38:58.000Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:46:40.584Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:46:47.571Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:46:51.302Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:46:58.520Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:47:03.329Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:47:11.955Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:47:33.620Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:47:37.200Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:47:43.440Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:47:49.870Z",
+      "feature": "innogreen-website",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:58:35.191Z",
+      "feature": "[slug]",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T11:59:25.233Z",
+      "feature": "[slug]",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T12:01:06.520Z",
+      "feature": "[slug]",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T12:01:56.125Z",
+      "feature": "[slug]",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-08T12:02:38.021Z",
+      "feature": "[slug]",
       "phase": "do",
       "action": "updated"
     }
