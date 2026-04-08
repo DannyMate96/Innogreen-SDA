@@ -12,7 +12,7 @@ import {
 const services = [
   { href: "/smart-homes", label: "Smart Homes" },
   { href: "/sda", label: "Specialist Disability Accommodation" },
-  { href: "/smart-homes", label: "Property Management" },
+  { href: "/property-management", label: "Property Management" },
   { href: "/smart-homes", label: "Technology Installation" },
 ];
 
