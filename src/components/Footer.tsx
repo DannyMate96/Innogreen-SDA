@@ -13,7 +13,6 @@ const services = [
   { href: "/smart-homes", label: "Smart Homes" },
   { href: "/sda", label: "Specialist Disability Accommodation" },
   { href: "/property-management", label: "Property Management" },
-  { href: "/smart-homes", label: "Technology Installation" },
 ];
 
 const quickLinks = [
