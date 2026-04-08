@@ -7,11 +7,11 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://innogreen.net.au"),
   title: {
-    default: "Innogreen | Smart, Secure & Accessible Homes in Perth | NDIS Provider",
+    default: "Innogreen | Smart & Accessible Homes in Perth | NDIS Provider",
     template: "%s | Innogreen - Perth NDIS Smart Homes",
   },
   description:
-    "Innogreen is a licensed property management agency (RA82486) and registered NDIS provider (4050064987) in Perth, WA. Specialising in Smart Home assistive technology, Specialist Disability Accommodation (SDA), and video doorbells for seniors.",
+    "Smart home technology and purpose-built SDA housing for NDIS participants across Perth, WA. Innogreen — your independence, our purpose.",
   keywords: [
     "NDIS provider Perth",
     "SDA Perth",
@@ -46,15 +46,15 @@ export const metadata: Metadata = {
     locale: "en_AU",
     url: "https://innogreen.net.au",
     siteName: "Innogreen",
-    title: "Innogreen | Smart, Secure & Accessible Homes in Perth",
+    title: "Innogreen | Smart & Accessible Homes in Perth",
     description:
-      "Licensed property management and registered NDIS provider specialising in Smart Home technology and Specialist Disability Accommodation (SDA) in Perth, WA.",
+      "Smart home technology and purpose-built SDA housing for NDIS participants across Perth, WA. Your independence, our purpose.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Innogreen | Smart, Secure & Accessible Homes in Perth",
+    title: "Innogreen | Smart & Accessible Homes in Perth",
     description:
-      "Licensed property management and registered NDIS provider specialising in Smart Home technology and SDA in Perth, WA.",
+      "Smart home technology and purpose-built SDA housing for NDIS participants across Perth, WA. Your independence, our purpose.",
   },
   robots: {
     index: true,
@@ -77,7 +77,7 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "Innogreen",
   description:
-    "Licensed property management agency and registered NDIS provider specialising in Smart Home assistive technology and Specialist Disability Accommodation (SDA) in Perth, Western Australia.",
+    "Smart home assistive technology and purpose-built SDA housing for NDIS participants across Perth, Western Australia.",
   url: "https://innogreen.net.au",
   telephone: "1800123000",
   email: "info@innogreentech.com.au",

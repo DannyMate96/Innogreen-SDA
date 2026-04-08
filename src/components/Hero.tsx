@@ -14,22 +14,18 @@ const trustBadges = [
   {
     icon: IoShieldCheckmarkOutline,
     label: "NDIS Registered Provider",
-    value: "4050064987",
   },
   {
     icon: IoBusinessOutline,
     label: "Licensed Real Estate Agency",
-    value: "RA82486",
   },
   {
     icon: IoRibbonOutline,
     label: "REIWA Member",
-    value: "562753",
   },
   {
     icon: IoGlobeOutline,
     label: "WA Police Security Agent",
-    value: "72864",
   },
 ];
 
@@ -63,7 +59,7 @@ export default function Hero() {
               id="hero-heading"
               className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              Smart, Secure &amp; Accessible{" "}
+              Smart &amp; Accessible{" "}
               <br className="hidden sm:block" />
               Homes in{" "}
               <span className="text-brand-teal-light">Perth</span>
@@ -76,9 +72,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-gray-200 sm:text-xl"
           >
-            Licensed property management and registered NDIS provider
-            specialising in Smart Home technology and Specialist Disability
-            Accommodation (SDA)
+            Your independence. Our purpose. Smart home technology and
+            purpose-built SDA housing for NDIS participants across Perth.
           </motion.p>
 
           <motion.div
@@ -118,11 +113,6 @@ export default function Hero() {
               <span className="text-xs font-medium text-gray-200">
                 {badge.label}
               </span>
-              {badge.value && (
-                <span className="text-xs font-semibold text-white">
-                  {badge.value}
-                </span>
-              )}
             </div>
           ))}
         </motion.div>
