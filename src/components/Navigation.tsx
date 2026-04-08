@@ -8,9 +8,11 @@ import { IoCallOutline } from "react-icons/io5";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
   { href: "/smart-homes", label: "Smart Homes" },
   { href: "/sda", label: "SDA" },
+  { href: "/ot-resource-centre", label: "OT Resources" },
+  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact Us" },
 ];
 
