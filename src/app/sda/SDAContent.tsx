@@ -32,7 +32,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 3,
     image: "/images/Armadale.png",
-    url: "https://innogreen.net.au/armadale",
+    url: "https://innogreenhomes.com.au/armadale",
     features: [
       "3 accessible bedrooms with ensuites",
       "Onsite Overnight Assistance (OOA) room",
@@ -49,7 +49,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 3,
     image: "/images/Baldivis.png",
-    url: "https://innogreen.net.au/baldivis",
+    url: "https://innogreenhomes.com.au/baldivis",
     features: [
       "3 accessible bedrooms with ensuites",
       "Onsite Overnight Assistance (OOA) room",
@@ -66,7 +66,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 2,
     image: "/images/Leederville.png",
-    url: "https://innogreen.net.au/leederville",
+    url: "https://innogreenhomes.com.au/leederville",
     features: [
       "Single occupancy accessible living",
       "Ducted AC with zone control",
@@ -83,7 +83,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 2,
     image: "/images/Morley.png",
-    url: "https://innogreen.net.au/morley",
+    url: "https://innogreenhomes.com.au/morley",
     features: [
       "8 brand-new SDA apartments",
       "Fully furnished with white goods",
