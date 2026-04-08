@@ -32,6 +32,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 3,
     image: "/images/Armadale.png",
+    url: "https://innogreen.net.au/armadale",
     features: [
       "3 accessible bedrooms with ensuites",
       "Onsite Overnight Assistance (OOA) room",
@@ -48,6 +49,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 3,
     image: "/images/Baldivis.png",
+    url: "https://innogreen.net.au/baldivis",
     features: [
       "3 accessible bedrooms with ensuites",
       "Onsite Overnight Assistance (OOA) room",
@@ -64,6 +66,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 2,
     image: "/images/Leederville.png",
+    url: "https://innogreen.net.au/leederville",
     features: [
       "Single occupancy accessible living",
       "Ducted AC with zone control",
@@ -80,6 +83,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 2,
     image: "/images/Morley.png",
+    url: "https://innogreen.net.au/morley",
     features: [
       "8 brand-new SDA apartments",
       "Fully furnished with white goods",
@@ -341,12 +345,14 @@ export default function SDAContent() {
                       ))}
                     </ul>
 
-                    <Link
-                      href="/contact"
+                    <a
+                      href={property.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-3 sm:mt-4 inline-flex min-h-[36px] sm:min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-brand-teal-dark"
                     >
-                      Enquire
-                    </Link>
+                      More details
+                    </a>
                   </div>
                 </div>
               </AnimatedSection>
