@@ -393,59 +393,9 @@ export default function SmartHomesContent() {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section
-        className="bg-white py-20 lg:py-28"
-        aria-labelledby="smart-services-heading"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-12 text-center">
-            <h2
-              id="smart-services-heading"
-              className="text-3xl font-bold text-brand-slate sm:text-4xl"
-            >
-              Our Smart Home Services
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-gray">
-              Comprehensive technology solutions designed for accessibility and
-              independence
-            </p>
-          </AnimatedSection>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <AnimatedSection key={service.title} delay={index * 0.1}>
-                <div className="card-hover flex h-full flex-col rounded-xl border border-brand-border bg-brand-bg-alt p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-teal/10">
-                    <service.icon className="h-6 w-6 text-brand-teal" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold text-brand-slate">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-brand-gray">
-                    {service.description}
-                  </p>
-                  <ul className="mt-4 flex-1 space-y-2" role="list">
-                    {service.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2 text-sm text-brand-gray"
-                      >
-                        <IoCheckmarkCircleOutline className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* In-Depth Feature Cards with Images */}
       <section
-        className="bg-brand-bg-alt py-20 lg:py-28"
+        className="bg-white py-20 lg:py-28"
         aria-labelledby="feature-cards-heading"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -494,6 +444,56 @@ export default function SmartHomesContent() {
               </a>
             </div>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section
+        className="bg-brand-bg-alt py-20 lg:py-28"
+        aria-labelledby="smart-services-heading"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-12 text-center">
+            <h2
+              id="smart-services-heading"
+              className="text-3xl font-bold text-brand-slate sm:text-4xl"
+            >
+              Our Smart Home Services
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-gray">
+              Comprehensive technology solutions designed for accessibility and
+              independence
+            </p>
+          </AnimatedSection>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <AnimatedSection key={service.title} delay={index * 0.1}>
+                <div className="card-hover flex h-full flex-col rounded-xl border border-brand-border bg-white p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-teal/10">
+                    <service.icon className="h-6 w-6 text-brand-teal" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-brand-slate">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-brand-gray">
+                    {service.description}
+                  </p>
+                  <ul className="mt-4 flex-1 space-y-2" role="list">
+                    {service.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2 text-sm text-brand-gray"
+                      >
+                        <IoCheckmarkCircleOutline className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 
