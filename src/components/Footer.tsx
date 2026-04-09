@@ -12,6 +12,8 @@ import {
 const services = [
   { href: "/smart-homes", label: "Smart Homes" },
   { href: "/sda", label: "Specialist Disability Accommodation" },
+  { href: "/sda-vacancies", label: "SDA Vacancies" },
+  { href: "/support-coordinators", label: "Support Coordinators" },
   { href: "/property-management", label: "Property Management" },
 ];
 

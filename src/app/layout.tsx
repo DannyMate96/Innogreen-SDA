@@ -80,7 +80,7 @@ const jsonLd = {
     "Smart home assistive technology and purpose-built SDA housing for NDIS participants across Perth, Western Australia.",
   url: "https://innogreen.net.au",
   telephone: "1800123000",
-  email: "info@innogreentech.com.au",
+  email: "info@innogreen.net.au",
   address: {
     "@type": "PostalAddress",
     streetAddress: "212 Carr Place",

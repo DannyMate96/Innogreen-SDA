@@ -51,11 +51,11 @@ export default function CallToAction() {
               1800 123 000
             </a>
             <a
-              href="mailto:info@innogreentech.com.au"
+              href="mailto:info@innogreen.net.au"
               className="flex items-center gap-2 text-sm font-medium text-white/90 hover:text-white"
             >
               <IoMailOutline className="h-5 w-5" />
-              info@innogreentech.com.au
+              info@innogreen.net.au
             </a>
             <span className="flex items-center gap-2 text-sm font-medium text-white/90">
               <IoTimeOutline className="h-5 w-5" />

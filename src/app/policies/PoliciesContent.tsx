@@ -324,11 +324,11 @@ export default function PoliciesContent() {
                 <span className="font-medium">1800 123 000</span>
               </a>
               <a
-                href="mailto:info@innogreentech.com.au"
+                href="mailto:info@innogreen.net.au"
                 className="flex items-center gap-3 transition-opacity hover:opacity-80"
               >
                 <IoMailOutline className="h-5 w-5" />
-                <span className="font-medium">info@innogreentech.com.au</span>
+                <span className="font-medium">info@innogreen.net.au</span>
               </a>
               <div className="flex items-start gap-3">
                 <IoLocationOutline className="mt-0.5 h-5 w-5 shrink-0" />
