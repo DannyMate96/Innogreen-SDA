@@ -14,6 +14,7 @@ import {
   TbBuilding,
   TbStethoscope,
   TbBook2,
+  TbCoin,
 } from "react-icons/tb";
 
 const servicesLinks = [
@@ -50,6 +51,12 @@ const servicesLinks = [
 ];
 
 const resourcesLinks = [
+  {
+    href: "/ndis-funding-guide",
+    label: "NDIS Funding Guide",
+    desc: "Capital Supports, AT, home modifications & SDA explained",
+    icon: TbCoin,
+  },
   {
     href: "/ot-resource-centre",
     label: "OT Resource Centre",

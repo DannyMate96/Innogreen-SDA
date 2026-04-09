@@ -4,18 +4,20 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
-  const { name, email, phone, subject, message } = await req.json();
+  const { name, email, phone, subject, enquirerType, supportNeed, message } = await req.json();
 
-  if (!name || !email || !subject || !message) {
+  if (!name || !email || !subject || !enquirerType || !message) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
   const { error } = await resend.emails.send({
     from: "Innogreen Contact Form <onboarding@resend.dev>",
-    to: "daniel@ezmate.ai",
+    to: "arian@innogreen.net.au",
+    bcc: "daniel@ezmate.ai",
     replyTo: email,
-    subject: `[Innogreen Enquiry] ${subject} — ${name}`,
+    subject: `[Innogreen Enquiry] ${subject} — ${name} (${enquirerType})`,
     text: `
+Enquirer Type: ${enquirerType}${supportNeed ? `\nClient's Support Need: ${supportNeed}` : ""}
 Name: ${name}
 Email: ${email}
 Phone: ${phone || "Not provided"}

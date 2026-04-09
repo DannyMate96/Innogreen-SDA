@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import AnimatedSection from "@/components/AnimatedSection";
 import {
   IoCallOutline,
@@ -43,22 +44,43 @@ const contactInfo = [
 const subjects = [
   "Smart Homes",
   "SDA Enquiry",
+  "SDA Vacancy Enquiry",
+  "SDA Waitlist",
   "Property Management",
-  "Seniors Services",
   "General Enquiry",
 ];
 
+const enquirerTypes = [
+  "NDIS Participant",
+  "Carer / Family Member",
+  "Support Coordinator",
+  "Builder / Developer",
+  "Other",
+];
+
+const emptyForm = {
+  name: "",
+  email: "",
+  phone: "",
+  subject: "",
+  enquirerType: "",
+  supportNeed: "",
+  message: "",
+};
+
 export default function ContactContent() {
+  const searchParams = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(emptyForm);
+
+  useEffect(() => {
+    const subjectParam = searchParams.get("subject");
+    if (subjectParam) {
+      setFormData((prev) => ({ ...prev, subject: subjectParam }));
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -124,16 +146,7 @@ export default function ContactContent() {
                       within 1 business day.
                     </p>
                     <button
-                      onClick={() => {
-                        setSubmitted(false);
-                        setFormData({
-                          name: "",
-                          email: "",
-                          phone: "",
-                          subject: "",
-                          message: "",
-                        });
-                      }}
+                      onClick={() => { setSubmitted(false); setFormData(emptyForm); }}
                       className="mt-6 rounded-lg bg-brand-teal px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-teal-dark"
                     >
                       Send Another Message
@@ -141,6 +154,56 @@ export default function ContactContent() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                    {/* Enquirer type */}
+                    <div>
+                      <label
+                        htmlFor="enquirerType"
+                        className="mb-2 block text-sm font-medium text-brand-slate"
+                      >
+                        I am a… <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="enquirerType"
+                        name="enquirerType"
+                        required
+                        value={formData.enquirerType}
+                        onChange={(e) =>
+                          setFormData({ ...formData, enquirerType: e.target.value, supportNeed: "" })
+                        }
+                        className="w-full rounded-lg border border-brand-border bg-brand-bg-alt px-4 py-3 text-base text-brand-slate transition-colors focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+                      >
+                        <option value="">Select your role</option>
+                        {enquirerTypes.map((type) => (
+                          <option key={type} value={type}>
+                            {type}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Support Coordinator — extra field */}
+                    {formData.enquirerType === "Support Coordinator" && (
+                      <div>
+                        <label
+                          htmlFor="supportNeed"
+                          className="mb-2 block text-sm font-medium text-brand-slate"
+                        >
+                          Client&apos;s primary support need
+                        </label>
+                        <input
+                          type="text"
+                          id="supportNeed"
+                          name="supportNeed"
+                          value={formData.supportNeed}
+                          onChange={(e) =>
+                            setFormData({ ...formData, supportNeed: e.target.value })
+                          }
+                          className="w-full rounded-lg border border-brand-border bg-brand-bg-alt px-4 py-3 text-base text-brand-slate placeholder-brand-gray-light transition-colors focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+                          placeholder="e.g. High physical support, SDA housing, assistive technology"
+                        />
+                      </div>
+                    )}
+
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div>
                         <label

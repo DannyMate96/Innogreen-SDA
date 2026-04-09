@@ -19,6 +19,7 @@ const services = [
 
 const quickLinks = [
   { href: "/about", label: "About Us" },
+  { href: "/ndis-funding-guide", label: "NDIS Funding Guide" },
   { href: "/ot-resource-centre", label: "OT Resource Centre" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
