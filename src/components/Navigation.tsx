@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/smart-homes", label: "Smart Homes" },
   { href: "/sda", label: "SDA" },
+  { href: "/sda-vacancies", label: "SDA Vacancies" },
   { href: "/ot-resource-centre", label: "OT Resources" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About Us" },
