@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
-export type BlogCategory = "Smart Homes" | "SDA" | "OT" | "NDIS";
+export type BlogCategory = "Smart Homes" | "SDA" | "OT" | "NDIS" | "NDIS Funding";
 
 export interface BlogPost {
   slug: string;
