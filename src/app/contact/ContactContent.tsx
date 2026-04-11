@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, FormEvent, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { track } from "@vercel/analytics";
 import AnimatedSection from "@/components/AnimatedSection";
 import {
   IoCallOutline,
@@ -82,7 +83,7 @@ export default function ContactContent() {
     }
   }, [searchParams]);
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: { preventDefault(): void }) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -96,6 +97,10 @@ export default function ContactContent() {
     setLoading(false);
 
     if (res.ok) {
+      track("contact_form_submitted", {
+        enquirer_type: formData.enquirerType,
+        subject: formData.subject,
+      });
       setSubmitted(true);
     } else {
       setError("Something went wrong. Please try again or email us directly.");
