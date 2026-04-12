@@ -48,6 +48,7 @@ const categoryColors: Record<BlogCategory, string> = {
   SDA: "bg-green-100 text-green-700",
   OT: "bg-purple-100 text-purple-700",
   NDIS: "bg-blue-100 text-blue-700",
+  "NDIS Funding": "bg-amber-100 text-amber-700",
 };
 
 const categoryBannerColors: Record<BlogCategory, string> = {
@@ -55,6 +56,7 @@ const categoryBannerColors: Record<BlogCategory, string> = {
   SDA: "from-emerald-700 to-green-600",
   OT: "from-purple-700 to-violet-600",
   NDIS: "from-blue-700 to-cyan-600",
+  "NDIS Funding": "from-amber-700 to-orange-600",
 };
 
 function formatDate(dateStr: string) {
