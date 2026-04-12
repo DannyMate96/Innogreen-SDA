@@ -48,7 +48,6 @@ const categoryBannerColors: Record<BlogCategory, string> = {
   SDA: "from-emerald-700 to-green-600",
   OT: "from-purple-700 to-violet-600",
   NDIS: "from-blue-700 to-cyan-600",
-  "NDIS Funding": "from-amber-700 to-orange-600",
 };
 
 function readingTime(content: string) {

@@ -4,14 +4,13 @@ import matter from "gray-matter";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
-export type BlogCategory = "Smart Homes" | "SDA" | "OT" | "NDIS" | "NDIS Funding";
+export type BlogCategory = "Smart Homes" | "SDA" | "OT" | "NDIS";
 
 export const categoryColors: Record<BlogCategory, string> = {
   "Smart Homes": "bg-cyan-100 text-cyan-700",
   SDA: "bg-green-100 text-green-700",
   OT: "bg-purple-100 text-purple-700",
   NDIS: "bg-blue-100 text-blue-700",
-  "NDIS Funding": "bg-amber-100 text-amber-700",
 };
 
 export function formatDate(dateStr: string) {

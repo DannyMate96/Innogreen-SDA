@@ -7,7 +7,7 @@ import { useState } from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { HiOutlineNewspaper } from "react-icons/hi";
 
-const CATEGORIES: ("All" | BlogCategory)[] = ["All", "Smart Homes", "SDA", "OT", "NDIS", "NDIS Funding"];
+const CATEGORIES: ("All" | BlogCategory)[] = ["All", "Smart Homes", "SDA", "OT", "NDIS"];
 
 export default function BlogList({ posts }: { posts: BlogPostMeta[] }) {
   const [activeCategory, setActiveCategory] = useState<"All" | BlogCategory>("All");
