@@ -30,7 +30,7 @@ export default function LocationAreas() {
           <AnimatedSection>
             <div className="overflow-hidden rounded-2xl border border-brand-border">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108000!2d115.8!3d-31.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32bad5d5a2e41f%3A0x504f0b535df4d30!2sPerth+WA!5e0!3m2!1sen!2sau!4v1700000000000"
+                src="https://maps.google.com/maps?q=15%2F212+Carr+Place+Leederville+WA+6007&output=embed"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}
