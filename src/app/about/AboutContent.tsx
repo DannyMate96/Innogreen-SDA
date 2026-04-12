@@ -247,15 +247,13 @@ export default function AboutContent() {
                   <div className="flex flex-col items-center gap-8 p-8 sm:flex-row sm:items-start sm:text-left">
                     {/* Photo */}
                     <div className="shrink-0">
-                      <div className="relative h-36 w-36 overflow-hidden rounded-full ring-4 ring-brand-teal/20 ring-offset-2">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          className="object-cover object-center"
-                          sizes="144px"
-                        />
-                      </div>
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={144}
+                        height={144}
+                        className="h-36 w-36 rounded-full object-cover ring-4 ring-brand-teal/20 ring-offset-2"
+                      />
                     </div>
 
                     {/* Details */}
