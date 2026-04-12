@@ -497,6 +497,36 @@ export default function SmartHomesContent() {
         </div>
       </section>
 
+      {/* Voice Control Visual */}
+      <section className="relative overflow-hidden bg-brand-slate">
+        <div className="relative h-72 w-full sm:h-80">
+          <Image
+            src="/images/smart-home-voice.jpg"
+            alt="Amazon Echo smart speaker with voice assistant for hands-free home automation"
+            fill
+            className="object-cover object-center opacity-35"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 flex items-center justify-center text-center">
+            <div className="px-4 sm:px-6">
+              <AnimatedSection>
+                <p className="text-sm font-semibold uppercase tracking-widest text-brand-teal-light">
+                  Voice-First Technology
+                </p>
+                <h2 className="mx-auto mt-3 max-w-xl text-2xl font-bold text-white sm:text-3xl">
+                  &ldquo;Hey Alexa, turn on the lights.&rdquo;
+                  <br />
+                  <span className="text-lg font-normal text-white/70">That&rsquo;s independence.</span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/70 sm:text-base">
+                  Compatible with Amazon Alexa, Google Home, and Apple HomeKit — set up and programmed by our team for your exact needs.
+                </p>
+              </AnimatedSection>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section
         className="bg-white py-20 lg:py-28"

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 import {
@@ -223,6 +224,32 @@ export default function PropertyManagementContent() {
                 </ul>
               </div>
             </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Interior Quality Visual */}
+      <section className="relative overflow-hidden">
+        <div className="relative h-72 w-full sm:h-80">
+          <Image
+            src="/images/modern-living.jpg"
+            alt="Well-presented modern living space in a professionally managed Perth property"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-slate/80 via-brand-slate/50 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <AnimatedSection>
+                <p className="max-w-xl text-xl font-bold italic text-white sm:text-2xl">
+                  &ldquo;Properties presented well attract better tenants and better returns. That&rsquo;s our standard.&rdquo;
+                </p>
+                <p className="mt-3 text-sm font-semibold text-brand-green-light">
+                  Arian David Gorjy — Principal, Innogreen
+                </p>
+              </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 import {
@@ -189,6 +190,40 @@ export default function SupportCoordinatorsContent() {
                 </div>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Supporting Independence Visual */}
+      <section aria-label="Supporting independence through technology">
+        <div className="grid lg:grid-cols-2">
+          <div className="relative min-h-[280px] lg:min-h-[380px]">
+            <Image
+              src="/images/elderly-smartphone.jpg"
+              alt="Support coordinator helping an elderly NDIS participant use a smartphone in the community"
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+          <div className="flex items-center bg-brand-slate px-8 py-12 lg:px-12">
+            <AnimatedSection>
+              <p className="text-sm font-semibold uppercase tracking-widest text-brand-green-light">
+                Supporting Independence
+              </p>
+              <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl">
+                Technology that works for your participants
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-gray-300">
+                Every Innogreen SDA property includes integrated smart home assistive technology — voice-controlled environments, automated access, and environmental controls — designed to give participants greater independence and reduce reliance on support.
+              </p>
+              <Link
+                href="/smart-homes"
+                className="mt-6 inline-flex items-center text-sm font-semibold text-brand-green-light transition-colors hover:text-brand-green"
+              >
+                Explore Smart Home Features →
+              </Link>
+            </AnimatedSection>
           </div>
         </div>
       </section>

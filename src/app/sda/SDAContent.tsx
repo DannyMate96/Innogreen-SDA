@@ -429,6 +429,35 @@ export default function SDAContent() {
         </div>
       </section>
 
+      {/* Accessible Bathroom Visual */}
+      <section className="relative overflow-hidden">
+        <div className="relative h-80 w-full sm:h-96">
+          <Image
+            src="/images/Web Image 7.png"
+            alt="Spacious accessible roll-in shower with grab rails in an Innogreen SDA property"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-slate/80 via-brand-slate/50 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <AnimatedSection>
+                <p className="text-sm font-semibold uppercase tracking-widest text-brand-green-light">
+                  Purpose-Built Design
+                </p>
+                <h2 className="mt-2 max-w-md text-2xl font-bold text-white sm:text-3xl">
+                  Accessible Bathrooms Built for Real Independence
+                </h2>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/80 sm:text-base">
+                  Roll-in showers, ceiling-height grab rails, and wide clearances — every Innogreen bathroom is designed with residents, not just for compliance.
+                </p>
+              </AnimatedSection>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Location Benefits */}
       <section className="bg-brand-bg-alt py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
