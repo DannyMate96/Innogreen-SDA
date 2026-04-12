@@ -9,15 +9,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Server configuration error: missing API key" }, { status: 500 });
   }
 
-  const { name, email, phone, subject, enquirerType, supportNeed, message } = await req.json();
+  let body: Record<string, string>;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
+
+  const { name, email, phone, subject, enquirerType, supportNeed, message } = body;
 
   if (!name || !email || !subject || !enquirerType || !message) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
+  }
+
+  const toEmail = process.env.CONTACT_TO_EMAIL ?? "daniel@ezmate.ai";
+
   const { data, error } = await resend.emails.send({
     from: "Innogreen Contact Form <onboarding@resend.dev>",
-    to: "daniel@ezmate.ai",
+    to: toEmail,
     replyTo: email,
     subject: `[Innogreen Enquiry] ${subject} — ${name} (${enquirerType})`,
     text: `

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { track } from "@vercel/analytics";
 import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 import CallToAction from "@/components/CallToAction";

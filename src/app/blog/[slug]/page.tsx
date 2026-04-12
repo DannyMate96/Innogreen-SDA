@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getAllSlugs, getPostBySlug, getRelatedPosts, BlogCategory } from "@/lib/blog";
+import { getAllSlugs, getPostBySlug, getRelatedPosts, BlogCategory, categoryColors, formatDate } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import ShareButtons from "./ShareButtons";
 import {
@@ -43,14 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
-const categoryColors: Record<BlogCategory, string> = {
-  "Smart Homes": "bg-cyan-100 text-cyan-700",
-  SDA: "bg-green-100 text-green-700",
-  OT: "bg-purple-100 text-purple-700",
-  NDIS: "bg-blue-100 text-blue-700",
-  "NDIS Funding": "bg-amber-100 text-amber-700",
-};
-
 const categoryBannerColors: Record<BlogCategory, string> = {
   "Smart Homes": "from-cyan-700 to-teal-600",
   SDA: "from-emerald-700 to-green-600",
@@ -58,14 +50,6 @@ const categoryBannerColors: Record<BlogCategory, string> = {
   NDIS: "from-blue-700 to-cyan-600",
   "NDIS Funding": "from-amber-700 to-orange-600",
 };
-
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-AU", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
 
 function readingTime(content: string) {
   return Math.max(1, Math.round(content.trim().split(/\s+/).length / 200));

@@ -2,28 +2,12 @@
 
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
-import { BlogPostMeta, BlogCategory } from "@/lib/blog";
+import { BlogPostMeta, BlogCategory, categoryColors, formatDate } from "@/lib/blog";
 import { useState } from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { HiOutlineNewspaper } from "react-icons/hi";
 
 const CATEGORIES: ("All" | BlogCategory)[] = ["All", "Smart Homes", "SDA", "OT", "NDIS", "NDIS Funding"];
-
-const categoryColors: Record<BlogCategory, string> = {
-  "Smart Homes": "bg-cyan-100 text-cyan-700",
-  SDA: "bg-green-100 text-green-700",
-  OT: "bg-purple-100 text-purple-700",
-  NDIS: "bg-blue-100 text-blue-700",
-  "NDIS Funding": "bg-amber-100 text-amber-700",
-};
-
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("en-AU", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
 
 export default function BlogList({ posts }: { posts: BlogPostMeta[] }) {
   const [activeCategory, setActiveCategory] = useState<"All" | BlogCategory>("All");

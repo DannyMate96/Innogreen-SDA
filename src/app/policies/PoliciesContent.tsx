@@ -13,7 +13,7 @@ import {
 
 export default function PoliciesContent() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-brand-teal to-brand-green py-24 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -340,6 +340,6 @@ export default function PoliciesContent() {
           </div>
         </AnimatedSection>
       </div>
-    </main>
+    </div>
   );
 }

@@ -2,7 +2,6 @@
 
 import AnimatedSection from "./AnimatedSection";
 import { IoStarSharp } from "react-icons/io5";
-import Link from "next/link";
 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/maps/place/Innogreen/@-31.937,115.842,17z/data=!4m8!3m7!1s0x0:0x0!8m2!3d-31.937!4d115.842!9m1!1b1";
