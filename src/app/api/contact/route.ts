@@ -18,7 +18,6 @@ export async function POST(req: NextRequest) {
   const { data, error } = await resend.emails.send({
     from: "Innogreen Contact Form <onboarding@resend.dev>",
     to: "daniel@ezmate.ai",
-    cc: "arian@innogreen.net.au",
     replyTo: email,
     subject: `[Innogreen Enquiry] ${subject} — ${name} (${enquirerType})`,
     text: `
@@ -30,6 +29,9 @@ Subject: ${subject}
 
 Message:
 ${message}
+
+---
+Also notify: arian@innogreen.net.au
     `.trim(),
   });
 

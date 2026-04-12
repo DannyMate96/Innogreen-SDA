@@ -103,7 +103,15 @@ export default function ContactContent() {
       });
       setSubmitted(true);
     } else {
-      setError("Something went wrong. Please try again or email us directly.");
+      let errMsg = "Something went wrong. Please try again or email us directly.";
+      try {
+        const body = await res.json();
+        if (body?.detail?.message) errMsg += ` (${body.detail.message})`;
+        else if (body?.error) errMsg += ` (${body.error})`;
+      } catch {
+        // ignore parse error
+      }
+      setError(errMsg);
     }
   };
 
