@@ -1,10 +1,10 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { IoStarSharp } from "react-icons/io5";
+import { IoStarSharp, IoChevronBackSharp, IoChevronForwardSharp } from "react-icons/io5";
 
-const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/maps/place/Innogreen/@-31.937,115.842,17z/data=!4m8!3m7!1s0x0:0x0!8m2!3d-31.937!4d115.842!9m1!1b1";
+const GOOGLE_REVIEWS_URL = "https://maps.app.goo.gl/NMPZBS8cFDSYXjem6";
 
 const testimonials = [
   {
@@ -59,7 +59,52 @@ function GoogleLogo() {
   );
 }
 
+function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
+  return (
+    <div className="flex h-full flex-col rounded-xl border border-brand-border bg-white p-6 shadow-sm">
+      <div className="flex items-center justify-between">
+        <div className="flex gap-0.5" aria-label={`${testimonial.rating} out of 5 stars`}>
+          {Array.from({ length: testimonial.rating }).map((_, i) => (
+            <IoStarSharp key={i} className="h-5 w-5 text-amber-400" aria-hidden="true" />
+          ))}
+        </div>
+        <GoogleLogo />
+      </div>
+
+      <blockquote className="mt-4 flex-1 text-base leading-relaxed text-brand-gray">
+        &ldquo;{testimonial.quote}&rdquo;
+      </blockquote>
+
+      <div className="mt-6 flex items-center gap-3 border-t border-brand-border pt-4">
+        <div
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${testimonial.color}`}
+          aria-hidden="true"
+        >
+          {testimonial.initials}
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-brand-slate">{testimonial.name}</p>
+          <p className="text-xs text-brand-gray-light">{testimonial.context}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Testimonials() {
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const total = testimonials.length;
+
+  const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
+  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(next, 5000);
+    return () => clearInterval(id);
+  }, [paused, next]);
+
   return (
     <section
       className="bg-brand-bg-alt py-20 lg:py-28"
@@ -98,50 +143,74 @@ export default function Testimonials() {
           </div>
         </AnimatedSection>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <AnimatedSection key={testimonial.name + index} delay={index * 0.1}>
-              <div className="card-hover flex h-full flex-col rounded-xl border border-brand-border bg-white p-6 shadow-sm">
-                {/* Google logo + stars */}
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-0.5" aria-label={`${testimonial.rating} out of 5 stars`}>
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <IoStarSharp
-                        key={i}
-                        className="h-5 w-5 text-amber-400"
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-                  <GoogleLogo />
-                </div>
-
-                {/* Quote */}
-                <blockquote className="mt-4 flex-1 text-base leading-relaxed text-brand-gray">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
-
-                {/* Author */}
-                <div className="mt-6 flex items-center gap-3 border-t border-brand-border pt-4">
-                  <div
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${testimonial.color}`}
-                    aria-hidden="true"
-                  >
-                    {testimonial.initials}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-brand-slate">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-xs text-brand-gray-light">
-                      {testimonial.context}
-                    </p>
-                  </div>
-                </div>
-              </div>
+        {/* Desktop: static 3-column grid */}
+        <div className="hidden gap-6 lg:grid lg:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <AnimatedSection key={t.name + i} delay={i * 0.1}>
+              <TestimonialCard testimonial={t} />
             </AnimatedSection>
           ))}
         </div>
+
+        {/* Mobile / tablet: carousel */}
+        <AnimatedSection className="lg:hidden">
+          <div
+            className="relative px-6"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
+          >
+            {/* Slide track */}
+            <div className="overflow-hidden rounded-xl">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${current * 100}%)` }}
+                aria-live="polite"
+              >
+                {testimonials.map((t, i) => (
+                  <div key={t.name + i} className="w-full shrink-0" aria-hidden={i !== current}>
+                    <TestimonialCard testimonial={t} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Prev arrow */}
+            <button
+              onClick={prev}
+              aria-label="Previous review"
+              className="absolute left-0 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-brand-border bg-white shadow-sm transition hover:border-brand-teal hover:text-brand-teal"
+            >
+              <IoChevronBackSharp className="h-5 w-5" />
+            </button>
+
+            {/* Next arrow */}
+            <button
+              onClick={next}
+              aria-label="Next review"
+              className="absolute right-0 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-brand-border bg-white shadow-sm transition hover:border-brand-teal hover:text-brand-teal"
+            >
+              <IoChevronForwardSharp className="h-5 w-5" />
+            </button>
+          </div>
+
+          {/* Dot indicators */}
+          <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Review slides">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                role="tab"
+                aria-selected={i === current}
+                aria-label={`Go to review ${i + 1}`}
+                onClick={() => setCurrent(i)}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  i === current ? "w-6 bg-brand-teal" : "w-2.5 bg-brand-border"
+                }`}
+              />
+            ))}
+          </div>
+        </AnimatedSection>
 
         {/* Write a review CTA */}
         <AnimatedSection delay={0.3}>
