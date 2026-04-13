@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
-import { BlogPostMeta, BlogCategory, categoryColors, formatDate } from "@/lib/blog";
+import { BlogPostMeta, BlogCategory, categoryColors, formatDate } from "@/lib/blog-types";
 import { useState } from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { HiOutlineNewspaper } from "react-icons/hi";
