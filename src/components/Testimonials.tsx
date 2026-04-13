@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { IoStarSharp } from "react-icons/io5";
+import { IoStarSharp, IoChevronBackSharp, IoChevronForwardSharp } from "react-icons/io5";
 
 const GOOGLE_REVIEWS_URL = "https://maps.app.goo.gl/NMPZBS8cFDSYXjem6";
-const TRUNCATE_LENGTH = 160;
 
 const testimonials = [
   {
@@ -16,6 +15,7 @@ const testimonials = [
     rating: 5,
     initials: "D",
     color: "bg-orange-500",
+    truncate: true,
   },
   {
     quote:
@@ -25,6 +25,7 @@ const testimonials = [
     rating: 5,
     initials: "L",
     color: "bg-gray-500",
+    truncate: false,
   },
   {
     quote:
@@ -34,6 +35,7 @@ const testimonials = [
     rating: 5,
     initials: "P",
     color: "bg-green-600",
+    truncate: false,
   },
   {
     quote:
@@ -43,6 +45,7 @@ const testimonials = [
     rating: 5,
     initials: "K",
     color: "bg-blue-600",
+    truncate: false,
   },
   {
     quote:
@@ -52,8 +55,11 @@ const testimonials = [
     rating: 5,
     initials: "M",
     color: "bg-purple-600",
+    truncate: false,
   },
 ];
+
+const TRUNCATE_LENGTH = 160;
 
 function GoogleLogo() {
   return (
@@ -68,9 +74,9 @@ function GoogleLogo() {
 
 function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
   const [expanded, setExpanded] = useState(false);
-  const isLong = testimonial.quote.length > TRUNCATE_LENGTH;
+  const needsTruncation = testimonial.truncate && testimonial.quote.length > TRUNCATE_LENGTH;
   const displayQuote =
-    isLong && !expanded
+    needsTruncation && !expanded
       ? testimonial.quote.slice(0, TRUNCATE_LENGTH).trimEnd() + "…"
       : testimonial.quote;
 
@@ -87,7 +93,7 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
 
       <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-brand-gray">
         &ldquo;{displayQuote}&rdquo;
-        {isLong && (
+        {needsTruncation && (
           <button
             onClick={() => setExpanded((v) => !v)}
             className="ml-1 whitespace-nowrap text-sm font-medium text-brand-teal hover:underline"
@@ -114,6 +120,15 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
 }
 
 export default function Testimonials() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = trackRef.current;
+    if (!el) return;
+    const cardWidth = el.querySelector("div")?.offsetWidth ?? 320;
+    el.scrollBy({ left: dir === "right" ? cardWidth + 20 : -(cardWidth + 20), behavior: "smooth" });
+  };
+
   return (
     <section
       className="bg-brand-bg-alt py-20 lg:py-28"
@@ -152,17 +167,41 @@ export default function Testimonials() {
           </div>
         </AnimatedSection>
 
-        {/* Horizontal scroll track — all breakpoints */}
+        {/* Scroll track */}
         <AnimatedSection>
-          <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {testimonials.map((t, i) => (
-              <div
-                key={t.name + i}
-                className="snap-start shrink-0 w-[min(300px,80vw)] sm:w-80 lg:w-[calc((100%-40px)/3)]"
-              >
-                <TestimonialCard testimonial={t} />
-              </div>
-            ))}
+          <div className="relative">
+            {/* Left arrow */}
+            <button
+              onClick={() => scroll("left")}
+              aria-label="Scroll reviews left"
+              className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 hidden sm:flex h-10 w-10 items-center justify-center rounded-full border border-brand-border bg-white shadow-md transition hover:border-brand-teal hover:text-brand-teal"
+            >
+              <IoChevronBackSharp className="h-5 w-5" />
+            </button>
+
+            {/* Right arrow */}
+            <button
+              onClick={() => scroll("right")}
+              aria-label="Scroll reviews right"
+              className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 hidden sm:flex h-10 w-10 items-center justify-center rounded-full border border-brand-border bg-white shadow-md transition hover:border-brand-teal hover:text-brand-teal"
+            >
+              <IoChevronForwardSharp className="h-5 w-5" />
+            </button>
+
+            {/* Cards */}
+            <div
+              ref={trackRef}
+              className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {testimonials.map((t, i) => (
+                <div
+                  key={t.name + i}
+                  className="snap-start shrink-0 w-[80vw] sm:w-80 lg:w-[320px]"
+                >
+                  <TestimonialCard testimonial={t} />
+                </div>
+              ))}
+            </div>
           </div>
         </AnimatedSection>
 
