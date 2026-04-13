@@ -34,6 +34,24 @@ const testimonials = [
     initials: "K",
     color: "bg-blue-600",
   },
+  {
+    quote:
+      "Matt was so friendly and approachable and very patient while we grappled with what was to us, new technology. He was also very funny! The video camera works a treat.",
+    name: "Michele Muir",
+    context: "6 days ago · 7 reviews",
+    rating: 5,
+    initials: "M",
+    color: "bg-purple-600",
+  },
+  {
+    quote:
+      "Innogreen delivered a very efficient and customer centric service. From the moment I rang Katherine she organised everything from sending me the security rebate form and answering my questions about it to organising Matt to install it the very next morning. Matt arrived at the appointed time and was very helpful and good at what he does. He not only installed the doorbell security system but also completed our rebate documentation and forwarded it onto the relevant state govt department. He also made sure we knew how to work it before he left. All in all it was a stress free experience and I would not hesitate to recommend Innogreen for the sale and installation of security products.",
+    name: "Doug Arnold",
+    context: "Local Guide · 43 reviews · 1 year ago",
+    rating: 5,
+    initials: "D",
+    color: "bg-orange-500",
+  },
 ];
 
 function GoogleLogo() {
