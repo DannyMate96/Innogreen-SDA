@@ -1274,9 +1274,12 @@
   }
 
   /* ── FORM ───────────────────────────────── */
-  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbys01A346geMNLHiRZNR2bO5FtdKtOxzbRmiYchbmfG6N2Fb76FtpTPuJiZ-FPiqV8/exec';
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
 
     const data = {
       name:    document.getElementById('fname').value,
@@ -1284,10 +1287,21 @@
       phone:   document.getElementById('fphone').value,
       address: document.getElementById('faddress').value,
     };
-    fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) })
-      .catch(() => {});
-    document.getElementById('bookingForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+
+    try {
+      const res = await fetch('/api/seniors-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('server error');
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send my request →';
+      alert('Something went wrong. Please call us on 1800 123 000.');
+    }
   }
 
   /* ── HERO CTA → QUALIFIER ──────────────── */
