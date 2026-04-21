@@ -50,8 +50,8 @@ export default function SeniorServices() {
           <AnimatedSection>
             <div className="mb-8 overflow-hidden rounded-2xl">
               <Image
-                src="/images/Web Image 2.png"
-                alt="Elderly woman being assisted with smartphone technology"
+                src="/images/seniors-doorbell-install.jpg"
+                alt="Innogreen technician installing a video doorbell with a senior homeowner"
                 width={600}
                 height={340}
                 className="h-auto w-full rounded-2xl object-cover"
@@ -99,7 +99,7 @@ export default function SeniorServices() {
                 For eligible Seniors Card holders
               </p>
               <a
-                href="/contact"
+                href="/seniors/"
                 className="mt-8 inline-flex min-h-[44px] items-center rounded-lg bg-white px-8 py-3 text-base font-semibold text-brand-teal shadow-lg transition-all hover:bg-gray-50"
               >
                 Find out about $400 rebate

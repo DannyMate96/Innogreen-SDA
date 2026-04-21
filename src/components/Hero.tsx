@@ -38,7 +38,7 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src="/images/Web Image 5.png"
+          src="/images/Web Image 2.png"
           alt=""
           fill
           className="object-cover"

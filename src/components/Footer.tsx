@@ -15,6 +15,7 @@ const services = [
   { href: "/sda-vacancies", label: "SDA Vacancies" },
   { href: "/support-coordinators", label: "Support Coordinators" },
   { href: "/property-management", label: "Property Management" },
+  { href: "/seniors/", label: "Senior Doorbell" },
 ];
 
 const quickLinks = [

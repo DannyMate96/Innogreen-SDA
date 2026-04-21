@@ -15,6 +15,7 @@ import {
   TbStethoscope,
   TbBook2,
   TbCoin,
+  TbBell,
 } from "react-icons/tb";
 
 const servicesLinks = [
@@ -47,6 +48,12 @@ const servicesLinks = [
     label: "Property Management",
     desc: "SDA property management services",
     icon: TbBuilding,
+  },
+  {
+    href: "/seniors/",
+    label: "Senior Doorbell",
+    desc: "$400 off video doorbell for WA Seniors Card holders",
+    icon: TbBell,
   },
 ];
 
