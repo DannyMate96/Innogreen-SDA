@@ -1170,12 +1170,12 @@
 
   /* ── HERO CANVAS (video frames) — desktop only ─ */
   const isMobile = window.innerWidth <= 540;
+  let heroAutoScrolled = false;
 
   if (!isMobile) {
     const canvas = document.getElementById('heroCanvas');
     const ctx = canvas.getContext('2d');
     let frames = [], totalFrames = 120, loaded = 0;
-    let heroAutoScrolled = false;
 
     function resizeCanvas() {
       const w = canvas.offsetWidth || window.innerWidth;
