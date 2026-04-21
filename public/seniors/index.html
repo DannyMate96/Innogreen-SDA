@@ -557,6 +557,12 @@
 
     /* ── FADE UP ─────────────────────────────────────── */
     .fade-up { opacity: 0; transform: translateY(32px); }
+    /* ── UTILITIES ───────────────────────────────────── */
+    .br-mobile { display: none; }
+    /* ── FORM ERRORS ─────────────────────────────────── */
+    .form-error { color: #ef4444; font-size: 14px; margin-top: 4px; display: none; }
+    .form-group.has-error .form-error { display: block; }
+    .form-group.has-error input { border-color: #ef4444 !important; }
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 860px) {
@@ -583,7 +589,7 @@
       .nav-phone svg { width: 20px; height: 20px; }
 
       /* ── Hero (mobile: static last-frame image, no scroll animation) ── */
-      .hero { height: 100svh; }
+      .hero { height: 100svh; padding: 0; }
       .hero-sticky { position: relative; top: 0; height: 100%; }
       #heroCanvas { display: none; }
       .hero-static-img { display: block; }
@@ -591,7 +597,8 @@
       .hero-sub { font-size: 17px; margin-bottom: 24px; }
       .hero-badge { font-size: 11px; padding: 5px 12px; margin-bottom: 16px; }
       .hero-btns { flex-direction: column; gap: 10px; width: 100%; }
-      .hero-btns .btn { width: 100%; justify-content: center; font-size: 18px; padding: 16px 20px; min-height: 56px; }
+      .hero-btns .btn { width: 100%; justify-content: center; font-size: 18px; padding: 16px 20px; min-height: 56px; box-sizing: border-box; }
+      .hero-btns .btn-teal { border: 2px solid transparent; }
       .hero-content { padding: 0 16px; width: 100%; }
 
       /* ── Sections ── */
@@ -613,6 +620,8 @@
 
       /* ── Footer ── */
       .footer-bottom { flex-direction: column; align-items: flex-start; }
+      /* ── Utilities ── */
+      .br-mobile { display: block; }
     }
   </style>
 </head>
@@ -875,10 +884,12 @@
         <div class="form-group">
           <label for="fphone">Best phone number</label>
           <input type="tel" id="fphone" placeholder="04XX XXX XXX" required autocomplete="tel">
+          <span class="form-error" id="phone-error">Please enter a valid Australian phone number (e.g. 0412 345 678)</span>
         </div>
         <div class="form-group">
           <label for="faddress">Home address</label>
           <input type="text" id="faddress" placeholder="Start typing your address…" required autocomplete="off">
+          <span class="form-error" id="address-error">Please select your address from the suggestions</span>
         </div>
         <button type="submit" class="form-submit">Send my request →</button>
       </form>
@@ -887,7 +898,7 @@
         <h3>Request sent!</h3>
         <p>We'll call you within one business day. Thank you!</p>
       </div>
-      <p class="form-phone">Prefer to talk? <a href="tel:1800123000">Call 1800 123 000</a></p>
+      <p class="form-phone">Prefer to talk?<br class="br-mobile"><a href="tel:1800123000">Call 1800 123 000</a></p>
     </div>
   </div>
 </section>
@@ -1264,13 +1275,38 @@
 
   /* ── FORM ───────────────────────────────── */
   const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbys01A346geMNLHiRZNR2bO5FtdKtOxzbRmiYchbmfG6N2Fb76FtpTPuJiZ-FPiqV8/exec';
+  const AU_PHONE_RE = /^(0[2378]\d{8}|04\d{8})$/;
+
+  function clearErrors() {
+    document.querySelectorAll('.form-group.has-error').forEach(g => g.classList.remove('has-error'));
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
+    clearErrors();
+    let valid = true;
+
+    /* AU phone validation */
+    const phoneRaw = document.getElementById('fphone').value.replace(/[\s\-().+]/g, '');
+    if (!AU_PHONE_RE.test(phoneRaw)) {
+      document.getElementById('fphone').closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    /* Google Maps address verification (only when Maps API loaded) */
+    const addrInput = document.getElementById('faddress');
+    if (window.google?.maps?.places && addrInput.dataset.verified !== 'true') {
+      addrInput.closest('.form-group').classList.add('has-error');
+      valid = false;
+    }
+
+    if (!valid) return;
+
     const data = {
       name:    document.getElementById('fname').value,
       email:   document.getElementById('femail').value,
       phone:   document.getElementById('fphone').value,
-      address: document.getElementById('faddress').value,
+      address: addrInput.value,
     };
     fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) })
       .catch(() => {});
@@ -1311,8 +1347,14 @@
     });
     ac.addListener('place_changed', () => {
       const place = ac.getPlace();
-      if (place.formatted_address) input.value = place.formatted_address;
+      if (place.formatted_address) {
+        input.value = place.formatted_address;
+        input.dataset.verified = 'true';
+        input.closest('.form-group').classList.remove('has-error');
+      }
     });
+    /* Reset verification flag when user types manually */
+    input.addEventListener('input', () => delete input.dataset.verified);
   }
 </script>
 <script
