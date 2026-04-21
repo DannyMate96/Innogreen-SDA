@@ -1275,25 +1275,8 @@
 
   /* ── FORM ───────────────────────────────── */
   const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbys01A346geMNLHiRZNR2bO5FtdKtOxzbRmiYchbmfG6N2Fb76FtpTPuJiZ-FPiqV8/exec';
-  const AU_PHONE_RE = /^(0[2378]\d{8}|04\d{8})$/;
-
-  function clearErrors() {
-    document.querySelectorAll('.form-group.has-error').forEach(g => g.classList.remove('has-error'));
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    clearErrors();
-    let valid = true;
-
-    /* AU phone validation */
-    const phoneRaw = document.getElementById('fphone').value.replace(/[\s\-().+]/g, '');
-    if (!AU_PHONE_RE.test(phoneRaw)) {
-      document.getElementById('fphone').closest('.form-group').classList.add('has-error');
-      valid = false;
-    }
-
-    if (!valid) return;
 
     const data = {
       name:    document.getElementById('fname').value,
@@ -1350,8 +1333,10 @@
     input.addEventListener('input', () => delete input.dataset.verified);
   }
 </script>
+<!-- Google Maps Places API — uncomment and replace key when ready
 <script
   src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initAddressAutocomplete"
   async defer></script>
+-->
 </body>
 </html>
