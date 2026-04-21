@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Doorbell for Seniors | Innogreen Perth</title>
   <meta name="description" content="WA Seniors Card holders get $400 off a video doorbell. We install everything. Call 1800 123 000.">
+  <link rel="canonical" href="https://innogreen.net.au/seniors/">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <base href="/seniors/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- Preload hero still image for mobile LCP -->
-  <link rel="preload" as="image" href="assets/frames/frame-0120.jpg" media="(max-width: 540px)">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
@@ -110,12 +111,6 @@
       position: absolute; inset: 0; display: block; z-index: 1;
       width: 100%; height: 100%; object-fit: cover; opacity: 0;
       transition: opacity .8s;
-    }
-    /* Static hero image — shown on mobile instead of canvas */
-    .hero-static-img {
-      display: none;
-      position: absolute; inset: 0; z-index: 1;
-      width: 100%; height: 100%; object-fit: cover;
     }
     .hero-content {
       position: absolute; z-index: 2;
@@ -288,7 +283,6 @@
     .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
     .product-card.ring { border-color: rgba(17,24,39,.08); }
     .product-card.best {
-      transform: scale(1.05);
       border-color: var(--green);
       box-shadow: 0 12px 32px rgba(127,208,63,.28);
     }
@@ -568,7 +562,6 @@
       .nav-phone { padding: 9px 14px; font-size: 15px; }
       .nav-logo img { height: 30px; }
       .footer-logo img { height: 28px; }
-      .product-card.best { transform: none; }
       .products-gallery { grid-template-columns: 1fr; }
       .products-gallery img { height: 220px; }
       .step-media img { height: 200px; }
@@ -581,11 +574,9 @@
       .nav-phone { padding: 8px 12px; font-size: 0; border-radius: 8px; }
       .nav-phone svg { width: 20px; height: 20px; }
 
-      /* ── Hero (mobile: static last-frame image, no scroll animation) ── */
-      .hero { height: 100svh; }
-      .hero-sticky { position: relative; top: 0; height: 100%; }
-      #heroCanvas { display: none; }
-      .hero-static-img { display: block; }
+      /* ── Hero ── */
+      .hero { height: 600vh; }
+      .hero-sticky { top: 56px; height: calc(100vh - 56px); }
       h1 { font-size: clamp(28px, 7vw, 44px); }
       .hero-sub { font-size: 17px; margin-bottom: 24px; }
       .hero-badge { font-size: 11px; padding: 5px 12px; margin-bottom: 16px; }
@@ -619,7 +610,7 @@
 
 <!-- ══ HEADER ════════════════════════════════════════ -->
 <nav class="nav" id="nav">
-  <a href="#" class="nav-logo">
+  <a href="https://www.innogreen.net.au" class="nav-logo">
     <img src="https://www.innogreen.net.au/images/Innogreen%20Homes%20text%20only.png"
          alt="Innogreen"
          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
@@ -635,21 +626,17 @@
 <section class="hero" id="hero">
   <div class="hero-sticky">
     <canvas id="heroCanvas"></canvas>
-    <img class="hero-static-img"
-         src="assets/frames/frame-0120.jpg"
-         alt="Innogreen video doorbell installed at front door"
-         loading="eager" fetchpriority="high">
     <div class="hero-content">
     <div class="hero-badge">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
       As Featured on Channel 7 News
     </div>
-    <h1>Know who's at your door.<br>Stay safe inside.</h1>
-    <p class="hero-sub">$400 off for WA Seniors Card holders.<br>We supply, install, and set up everything.</p>
+    <h1>See who's at your door<br>Stay safe inside</h1>
+    <p class="hero-sub">$400 off for WA Seniors Card holders<br>We supply, install, and set up everything</p>
     <div class="hero-btns">
       <a href="#qualifier" class="btn btn-teal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-        See if I can get $400 off
+        Check if I can get $400 off
       </a>
       <a href="tel:1800123000" class="btn btn-outline">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.18 2 2 0 014 0h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16z"/></svg>
@@ -756,14 +743,15 @@
         <div class="product-tag">Lowest upfront cost</div>
         <div class="product-name">Ring Doorbell</div>
         <div class="product-price"><sup>$</sup>0 <span class="product-price-label">after rebate</span></div>
-        <div class="product-lead">Best if you want the lowest upfront price after the rebate.</div>
+        <div class="product-lead">Lowest upfront price after the rebate</div>
         <div class="product-sub">Pay $400 · Get $400 back</div>
         <ul class="features">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full installation</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>See and talk from your phone</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Clear HD camera, day and night</li>
         </ul>
-        <div class="product-note">Optional: $49.95/year to watch old videos. First month free.</div>
+        <div class="product-note">Optional: $49.95/year to watch footage. First month free.</div>
+        <div class="product-note">Optional: Add a chime for $88.</div>
         <a href="#qualifier" class="btn-product">I want the Ring →</a>
       </div>
 
@@ -772,12 +760,14 @@
         <div class="product-tag">No ongoing video fee</div>
         <div class="badge">⭐ Most popular</div>
         <div class="product-name">Eufy Doorbell</div>
-        <div class="product-price"><sup>$</sup>95 <span class="product-price-label">after rebate</span></div>
-        <div class="product-lead">Best if you want more convenience at home and no yearly fee.</div>
+        <div class="product-price" style="color: var(--green)"><sup>$</sup>95 <span class="product-price-label">after rebate</span></div>
+        <div class="product-lead">Chime included &amp; No yearly fee</div>
         <div class="product-sub">Pay $495 · Get $400 back</div>
         <ul class="features">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full installation</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>See and talk from your phone</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Clear HD camera, day and night</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Footage stored in local storage</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><strong>Chime inside the house</strong></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><strong>No yearly fee, ever</strong></li>
         </ul>
@@ -1038,7 +1028,7 @@
           <span class="faq-q">Do I pay anything monthly?</span>
           <span class="faq-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </button>
-        <div class="faq-body"><div class="faq-answer"><ul><li><strong>Eufy:</strong> No fees. Ever.</li><li><strong>Ring:</strong> Optional $49.95/year to watch old videos. The doorbell works fine without it.</li></ul></div></div>
+        <div class="faq-body"><div class="faq-answer"><ul><li><strong>Eufy:</strong> No fees. Ever.</li><li><strong>Ring:</strong> Optional $49.95/year to watch footage. The doorbell works fine without it. You can also add a chime for $88.</li></ul></div></div>
       </div>
 
       <div class="faq-item fade-up">
@@ -1153,65 +1143,67 @@
     document.getElementById('nav').classList.toggle('scrolled', scrollY > 20);
   });
 
-  /* ── HERO CANVAS (video frames) — desktop only ─ */
+  /* ── HERO CANVAS (video frames) ─ */
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  let frames = [], totalFrames = 120, loaded = 0;
+  let heroAutoScrolled = false;
   const isMobile = window.innerWidth <= 540;
+  /* On mobile load every 2nd frame → 60 effective frames */
+  const effectiveFrames = isMobile ? 60 : totalFrames;
 
-  if (!isMobile) {
-    const canvas = document.getElementById('heroCanvas');
-    const ctx = canvas.getContext('2d');
-    let frames = [], totalFrames = 120, loaded = 0;
-    let heroAutoScrolled = false;
-
-    function resizeCanvas() {
-      const w = canvas.offsetWidth || window.innerWidth;
-      const h = canvas.offsetHeight || (window.innerHeight - 68);
-      canvas.width  = w;
-      canvas.height = h;
-    }
-    requestAnimationFrame(() => { resizeCanvas(); });
-    window.addEventListener('resize', resizeCanvas);
-
-    function drawFrame(idx) {
-      if (!frames[idx]?.complete) return;
-      if (canvas.width === 0 || canvas.height === 0) resizeCanvas();
-      const r = Math.max(canvas.width / frames[idx].naturalWidth, canvas.height / frames[idx].naturalHeight);
-      const w = frames[idx].naturalWidth * r, h = frames[idx].naturalHeight * r;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(frames[idx], (canvas.width-w)/2, (canvas.height-h)/2, w, h);
-    }
-
-    const probe = new Image();
-    probe.onload = () => {
-      canvas.style.opacity = '1';
-      resizeCanvas();
-
-      for (let i = 0; i < totalFrames; i++) {
-        const img = new Image();
-        img.src = `assets/frames/frame-${String(i + 1).padStart(4,'0')}.jpg`;
-        img.onload = () => { loaded++; if (loaded === 1) drawFrame(0); };
-        frames[i] = img;
-      }
-
-      gsap.to({ frame: 0 }, {
-        frame: totalFrames - 1, snap: 'frame', ease: 'none',
-        scrollTrigger: {
-          trigger: '.hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 0.5,
-          onLeave() {
-            if (heroAutoScrolled) return;
-            heroAutoScrolled = true;
-            document.querySelector('.trust-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          },
-          onEnterBack() { heroAutoScrolled = false; }
-        },
-        onUpdate() { drawFrame(Math.round(this.targets()[0].frame)); }
-      });
-    };
-    probe.onerror = () => canvas.remove();
-    probe.src = 'assets/frames/frame-0001.jpg';
+  function resizeCanvas() {
+    const w = canvas.offsetWidth || window.innerWidth;
+    const h = canvas.offsetHeight || (window.innerHeight - (isMobile ? 56 : 68));
+    canvas.width  = w;
+    canvas.height = h;
   }
+  /* Defer until layout is complete */
+  requestAnimationFrame(() => { resizeCanvas(); });
+  window.addEventListener('resize', resizeCanvas);
+
+  function drawFrame(idx) {
+    if (!frames[idx]?.complete) return;
+    if (canvas.width === 0 || canvas.height === 0) resizeCanvas();
+    const r = Math.max(canvas.width / frames[idx].naturalWidth, canvas.height / frames[idx].naturalHeight);
+    const w = frames[idx].naturalWidth * r, h = frames[idx].naturalHeight * r;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(frames[idx], (canvas.width-w)/2, (canvas.height-h)/2, w, h);
+  }
+
+  const probe = new Image();
+  probe.onload = () => {
+    canvas.style.opacity = '1';
+    resizeCanvas();
+
+    for (let i = 0; i < effectiveFrames; i++) {
+      /* desktop: frames 1-120; mobile: frames 1,3,5...119 */
+      const frameNum = isMobile ? (i * 2 + 1) : (i + 1);
+      const img = new Image();
+      img.src = `assets/frames/frame-${String(frameNum).padStart(4,'0')}.jpg`;
+      img.onload = () => { loaded++; if (loaded === 1) drawFrame(0); };
+      frames[i] = img;
+    }
+
+    gsap.to({ frame: 0 }, {
+      frame: effectiveFrames - 1, snap: 'frame', ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: isMobile ? 1.5 : 0.5,
+        onLeave() {
+          if (heroAutoScrolled) return;
+          heroAutoScrolled = true;
+          document.querySelector('.trust-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        },
+        onEnterBack() { heroAutoScrolled = false; }
+      },
+      onUpdate() { drawFrame(Math.round(this.targets()[0].frame)); }
+    });
+  };
+  probe.onerror = () => canvas.remove();
+  probe.src = 'assets/frames/frame-0001.jpg';
 
   /* ── SCROLL FADE-UPS ────────────────────── */
   gsap.utils.toArray('.fade-up').forEach(el => {
@@ -1259,8 +1251,17 @@
   }
 
   /* ── FORM ───────────────────────────────── */
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbys01A346geMNLHiRZNR2bO5FtdKtOxzbRmiYchbmfG6N2Fb76FtpTPuJiZ-FPiqV8/exec';
   function handleSubmit(e) {
     e.preventDefault();
+    const data = {
+      name:    document.getElementById('fname').value,
+      email:   document.getElementById('femail').value,
+      phone:   document.getElementById('fphone').value,
+      address: document.getElementById('faddress').value,
+    };
+    fetch(SHEETS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) })
+      .catch(() => {});
     document.getElementById('bookingForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
   }
