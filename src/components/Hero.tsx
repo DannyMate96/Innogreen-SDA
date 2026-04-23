@@ -3,8 +3,31 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  IoShieldCheckmarkOutline,
+  IoBusinessOutline,
+  IoRibbonOutline,
+  IoGlobeOutline,
+} from "react-icons/io5";
 
-const HERO_IMAGE = "/images/hf_20260422_070644_6f37f834-db77-4f48-b063-3330f080fd17.png";
+const trustBadges = [
+  {
+    icon: IoShieldCheckmarkOutline,
+    label: "NDIS Registered Provider",
+  },
+  {
+    icon: IoBusinessOutline,
+    label: "Licensed Real Estate Agency",
+  },
+  {
+    icon: IoRibbonOutline,
+    label: "REIWA Member",
+  },
+  {
+    icon: IoGlobeOutline,
+    label: "WA Police Security Agent",
+  },
+];
 
 export default function Hero() {
   return (
@@ -12,80 +35,45 @@ export default function Hero() {
       className="relative overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      {/* ========= DESKTOP (lg and up): use the designed image as-is with clickable overlays ========= */}
-      <div className="relative hidden lg:block">
-        <div className="relative mx-auto aspect-[1344/752] w-full max-w-[1536px]">
-          <Image
-            src={HERO_IMAGE}
-            alt="Innogreen — smart, accessible SDA homes. Use the clickable buttons to view SDA properties or smart home solutions."
-            fill
-            priority
-            sizes="(min-width: 1024px) 100vw, 0px"
-            className="object-cover"
-          />
-
-          {/* Cover the baked-in logo in the image (top-left) — matches the image's dark slate bg */}
-          <div
-            aria-hidden="true"
-            className="absolute left-0 top-0 h-[15%] w-[22%] bg-brand-slate"
-          />
-
-          {/* SEO/a11y heading — visually hidden because the text is baked into the image */}
-          <h1 id="hero-heading" className="sr-only">
-            Smart homes. Greater independence. Better lives. Purpose-built,
-            technology-enabled SDA homes designed around you.
-          </h1>
-
-          {/* Clickable hotspot: View SDA Properties (teal button in image) */}
-          <Link
-            href="/sda"
-            aria-label="View SDA Properties"
-            className="absolute left-[3%] top-[60%] h-[9%] w-[16%] rounded-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-teal-light focus-visible:ring-offset-2 focus-visible:ring-offset-brand-slate"
-          >
-            <span className="sr-only">View SDA Properties</span>
-          </Link>
-
-          {/* Clickable hotspot: Smart Home Solutions (outlined button in image) */}
-          <Link
-            href="/smart-homes"
-            aria-label="Smart Home Solutions"
-            className="absolute left-[20%] top-[60%] h-[9%] w-[20%] rounded-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-teal-light focus-visible:ring-offset-2 focus-visible:ring-offset-brand-slate"
-          >
-            <span className="sr-only">Smart Home Solutions</span>
-          </Link>
-        </div>
+      {/* Background image */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src="/images/Web Image 2.png"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+          quality={85}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-slate/90 via-brand-slate/75 to-brand-slate/50" />
       </div>
 
-      {/* ========= MOBILE (below lg): simplified dark-slate hero with real HTML ========= */}
-      <div className="relative bg-brand-slate lg:hidden">
-        {/* Subtle teal glow accent (matches brand, no image bleed-through) */}
-        <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-brand-teal)_0%,_transparent_55%)] opacity-20"
-          aria-hidden="true"
-        />
-
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
+      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
-              Smart homes.
-              <br />
-              Greater independence.
-              <br />
-              <span className="text-brand-teal-light">Better lives.</span>
-            </h2>
+            <h1
+              id="hero-heading"
+              className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              Smart &amp; Accessible{" "}
+              <br className="hidden sm:block" />
+              Homes in{" "}
+              <span className="text-brand-teal-light">Perth</span>
+            </h1>
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-gray-200"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-gray-200 sm:text-xl"
           >
-            Purpose-built, technology-enabled SDA homes designed around you.
+            Your independence. Our purpose. Smart home technology and
+            purpose-built SDA housing for NDIS participants across Perth.
           </motion.p>
 
           <motion.div
@@ -108,6 +96,26 @@ export default function Hero() {
             </Link>
           </motion.div>
         </div>
+
+        {/* Trust badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-16 grid grid-cols-2 gap-4 lg:grid-cols-4"
+        >
+          {trustBadges.map((badge) => (
+            <div
+              key={badge.label}
+              className="flex flex-col items-center gap-2 rounded-xl border border-white/20 bg-white/10 p-4 text-center backdrop-blur-sm"
+            >
+              <badge.icon className="h-6 w-6 text-brand-teal-light" />
+              <span className="text-xs font-medium text-gray-200">
+                {badge.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
