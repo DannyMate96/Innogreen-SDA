@@ -25,7 +25,7 @@ const differentiators = [
     points: [
       "Licensed real estate agency",
       "REIWA member",
-      "WA Police Security Agent 72864",
+      "WA Police licensed security agent",
       "Perth-based local knowledge",
     ],
   },

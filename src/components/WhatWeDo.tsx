@@ -12,23 +12,19 @@ import {
 const credentials = [
   {
     icon: IoShieldCheckmarkOutline,
-    title: "NDIS Registered",
-    detail: "Provider No: 4050064987",
+    title: "NDIS Registered Provider",
   },
   {
     icon: IoBusinessOutline,
-    title: "Licensed Agency",
-    detail: "Real Estate Agency: RA82486",
+    title: "Licensed Real Estate Agency",
   },
   {
     icon: IoRibbonOutline,
     title: "REIWA Member",
-    detail: "Member No: 562753",
   },
   {
     icon: IoGlobeOutline,
     title: "WA Police Security Agent",
-    detail: "Agent No: 72864",
   },
 ];
 
@@ -83,9 +79,6 @@ export default function WhatWeDo() {
                   <h3 className="mt-2 text-sm font-semibold text-brand-slate">
                     {cred.title}
                   </h3>
-                  <p className="mt-0.5 text-xs text-brand-gray-light">
-                    {cred.detail}
-                  </p>
                 </div>
               ))}
             </div>

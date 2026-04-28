@@ -1,13 +1,22 @@
 "use client";
 
+import { useState, useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { IoStarSharp } from "react-icons/io5";
-import Link from "next/link";
+import { IoStarSharp, IoChevronBackSharp, IoChevronForwardSharp } from "react-icons/io5";
 
-const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/maps/place/Innogreen/@-31.937,115.842,17z/data=!4m8!3m7!1s0x0:0x0!8m2!3d-31.937!4d115.842!9m1!1b1";
+const GOOGLE_REVIEWS_URL = "https://maps.app.goo.gl/NMPZBS8cFDSYXjem6";
 
 const testimonials = [
+  {
+    quote:
+      "Innogreen delivered a very efficient and customer centric service. From the moment I rang Katherine she organised everything from sending me the security rebate form and answering my questions about it to organising Matt to install it the very next morning. Matt arrived at the appointed time and was very helpful and good at what he does. He not only installed the doorbell security system but also completed our rebate documentation and forwarded it onto the relevant state govt department. He also made sure we knew how to work it before he left. All in all it was a stress free experience and I would not hesitate to recommend Innogreen for the sale and installation of security products.",
+    name: "Doug Arnold",
+    context: "Local Guide · 43 reviews · 1 year ago",
+    rating: 5,
+    initials: "D",
+    color: "bg-orange-500",
+    truncate: true,
+  },
   {
     quote:
       "Matt arrived on time and quickly installed the door bell. He was very good and patient explaining how it all worked and he also submitted the required paperwork for the WA Seniors Card Safety & Security Rebate Application.",
@@ -16,6 +25,7 @@ const testimonials = [
     rating: 5,
     initials: "L",
     color: "bg-gray-500",
+    truncate: false,
   },
   {
     quote:
@@ -25,6 +35,7 @@ const testimonials = [
     rating: 5,
     initials: "P",
     color: "bg-green-600",
+    truncate: false,
   },
   {
     quote:
@@ -34,33 +45,90 @@ const testimonials = [
     rating: 5,
     initials: "K",
     color: "bg-blue-600",
+    truncate: false,
+  },
+  {
+    quote:
+      "Matt was so friendly and approachable and very patient while we grappled with what was to us, new technology. He was also very funny! The video camera works a treat.",
+    name: "Michele Muir",
+    context: "6 days ago · 7 reviews",
+    rating: 5,
+    initials: "M",
+    color: "bg-purple-600",
+    truncate: false,
   },
 ];
 
+const TRUNCATE_LENGTH = 160;
+
 function GoogleLogo() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
-      <path
-        fill="#4285F4"
-        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-      />
-      <path
-        fill="#34A853"
-        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-      />
-      <path
-        fill="#FBBC05"
-        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-      />
-      <path
-        fill="#EA4335"
-        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-      />
+    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" aria-hidden="true">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
     </svg>
   );
 }
 
+function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
+  const [expanded, setExpanded] = useState(false);
+  const needsTruncation = testimonial.truncate && testimonial.quote.length > TRUNCATE_LENGTH;
+  const displayQuote =
+    needsTruncation && !expanded
+      ? testimonial.quote.slice(0, TRUNCATE_LENGTH).trimEnd() + "…"
+      : testimonial.quote;
+
+  return (
+    <div className="flex h-full flex-col rounded-xl border border-brand-border bg-white p-6 shadow-sm">
+      <div className="flex items-center justify-between">
+        <div className="flex gap-0.5" aria-label={`${testimonial.rating} out of 5 stars`}>
+          {Array.from({ length: testimonial.rating }).map((_, i) => (
+            <IoStarSharp key={i} className="h-5 w-5 text-amber-400" aria-hidden="true" />
+          ))}
+        </div>
+        <GoogleLogo />
+      </div>
+
+      <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-brand-gray">
+        &ldquo;{displayQuote}&rdquo;
+        {needsTruncation && (
+          <button
+            onClick={() => setExpanded((v) => !v)}
+            className="ml-1 whitespace-nowrap text-sm font-medium text-brand-teal hover:underline"
+          >
+            {expanded ? "Show less" : "Read more"}
+          </button>
+        )}
+      </blockquote>
+
+      <div className="mt-4 flex items-center gap-3 border-t border-brand-border pt-4">
+        <div
+          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${testimonial.color}`}
+          aria-hidden="true"
+        >
+          {testimonial.initials}
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-brand-slate">{testimonial.name}</p>
+          <p className="text-xs text-brand-gray-light">{testimonial.context}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Testimonials() {
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = trackRef.current;
+    if (!el) return;
+    const cardWidth = el.querySelector("div")?.offsetWidth ?? 320;
+    el.scrollBy({ left: dir === "right" ? cardWidth + 20 : -(cardWidth + 20), behavior: "smooth" });
+  };
+
   return (
     <section
       className="bg-brand-bg-alt py-20 lg:py-28"
@@ -99,53 +167,46 @@ export default function Testimonials() {
           </div>
         </AnimatedSection>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <AnimatedSection key={testimonial.name + index} delay={index * 0.1}>
-              <div className="card-hover flex h-full flex-col rounded-xl border border-brand-border bg-white p-6 shadow-sm">
-                {/* Google logo + stars */}
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-0.5" aria-label={`${testimonial.rating} out of 5 stars`}>
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <IoStarSharp
-                        key={i}
-                        className="h-5 w-5 text-amber-400"
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-                  <GoogleLogo />
-                </div>
+        {/* Scroll track */}
+        <AnimatedSection>
+          <div className="relative">
+            {/* Left arrow */}
+            <button
+              onClick={() => scroll("left")}
+              aria-label="Scroll reviews left"
+              className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 hidden sm:flex h-10 w-10 items-center justify-center rounded-full border border-brand-border bg-white shadow-md transition hover:border-brand-teal hover:text-brand-teal"
+            >
+              <IoChevronBackSharp className="h-5 w-5" />
+            </button>
 
-                {/* Quote */}
-                <blockquote className="mt-4 flex-1 text-base leading-relaxed text-brand-gray">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
+            {/* Right arrow */}
+            <button
+              onClick={() => scroll("right")}
+              aria-label="Scroll reviews right"
+              className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 hidden sm:flex h-10 w-10 items-center justify-center rounded-full border border-brand-border bg-white shadow-md transition hover:border-brand-teal hover:text-brand-teal"
+            >
+              <IoChevronForwardSharp className="h-5 w-5" />
+            </button>
 
-                {/* Author */}
-                <div className="mt-6 flex items-center gap-3 border-t border-brand-border pt-4">
-                  <div
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${testimonial.color}`}
-                    aria-hidden="true"
-                  >
-                    {testimonial.initials}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-brand-slate">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-xs text-brand-gray-light">
-                      {testimonial.context}
-                    </p>
-                  </div>
+            {/* Cards */}
+            <div
+              ref={trackRef}
+              className="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {testimonials.map((t, i) => (
+                <div
+                  key={t.name + i}
+                  className="snap-start shrink-0 w-[80vw] sm:w-80 lg:w-[320px]"
+                >
+                  <TestimonialCard testimonial={t} />
                 </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+              ))}
+            </div>
+          </div>
+        </AnimatedSection>
 
         {/* Write a review CTA */}
-        <AnimatedSection delay={0.3}>
+        <AnimatedSection delay={0.2}>
           <div className="mt-10 text-center">
             <a
               href={GOOGLE_REVIEWS_URL}

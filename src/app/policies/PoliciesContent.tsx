@@ -13,7 +13,7 @@ import {
 
 export default function PoliciesContent() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-brand-teal to-brand-green py-24 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -324,11 +324,11 @@ export default function PoliciesContent() {
                 <span className="font-medium">1800 123 000</span>
               </a>
               <a
-                href="mailto:info@innogreentech.com.au"
+                href="mailto:info@innogreen.net.au"
                 className="flex items-center gap-3 transition-opacity hover:opacity-80"
               >
                 <IoMailOutline className="h-5 w-5" />
-                <span className="font-medium">info@innogreentech.com.au</span>
+                <span className="font-medium">info@innogreen.net.au</span>
               </a>
               <div className="flex items-start gap-3">
                 <IoLocationOutline className="mt-0.5 h-5 w-5 shrink-0" />
@@ -340,6 +340,6 @@ export default function PoliciesContent() {
           </div>
         </AnimatedSection>
       </div>
-    </main>
+    </div>
   );
 }

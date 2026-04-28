@@ -129,6 +129,154 @@ const process = [
   },
 ];
 
+const featureCards = [
+  {
+    image: "/images/Create_a_premium_commercial-grade_lifestyle_image_-1775651543096.png",
+    imageAlt: "Smart video doorbell installed at front door",
+    title: "Smart Video Doorbell",
+    summary:
+      "See and speak to whoever is at your door — from anywhere in the home, or anywhere in the world.",
+    body: `For people who find it difficult or unsafe to answer the door, a smart video doorbell is life-changing. With a tap on your phone or tablet, you can see who is at your door, speak with them through two-way audio, and even unlock the door remotely — all without leaving your seat or bed.\n\nFor NDIS participants, this means far greater independence. No longer do you need a carer nearby every time someone knocks. Families and support coordinators also gain peace of mind knowing entry can be monitored and controlled remotely.\n\nInnogreen is a registered NDIS supplier and can assist you in accessing this technology through your NDIS plan under Assistive Technology or Home Modifications funding.`,
+    features: [
+      "HD live video feed accessible from any device",
+      "Two-way audio — speak from anywhere in the home",
+      "Motion-triggered alerts sent to your phone",
+      "Remote door unlock capability",
+      "Night vision for around-the-clock visibility",
+      "NDIS funding may apply",
+    ],
+  },
+  {
+    image: "/images/Create_a_premium_commercial-grade_close-up_image_f-1775651545415.png",
+    imageAlt: "Smart electronic door lock with keypad",
+    title: "Smart Door Locks & Keyless Entry",
+    summary:
+      "Secure, keyless access that puts independence back in your hands — no fumbling for keys required.",
+    body: `Traditional keys can be a barrier for people with limited hand strength, dexterity issues, or cognitive challenges. Smart door locks eliminate that barrier entirely. Doors can be unlocked via voice command, smartphone app, PIN code, fingerprint, or scheduled to open automatically at set times.\n\nFor NDIS and SDA residents, this technology significantly reduces reliance on others for basic daily tasks like letting in a support worker or locking up at night. Innogreen programs each lock to suit the resident's specific routine and ability level.\n\nAs a registered NDIS supplier, Innogreen can guide you through how this may be funded under your plan — often under Assistive Technology or SDA home modification categories.`,
+    features: [
+      "Unlock by voice, app, PIN, or fingerprint",
+      "Auto-lock and scheduled access",
+      "Grant or revoke access remotely for carers",
+      "Access logs — see who entered and when",
+      "Works with Alexa, Google Home, and Apple HomeKit",
+      "Suitable for SDA and NDIS-funded homes",
+    ],
+  },
+  {
+    image: "/images/Create_a_premium_commercial-grade_in-home_marketin-1775651535131.png",
+    imageAlt: "CCTV security dome camera mounted on exterior wall",
+    title: "CCTV & Indoor Security Cameras",
+    summary:
+      "Round-the-clock monitoring that keeps residents and families informed and reassured.",
+    body: `Smart security cameras give residents, families, and carers a real-time view of what's happening at home. Whether placed at entry points, common areas, or outdoor spaces, these cameras deter unwanted visitors and provide a clear record if anything does occur.\n\nFor people with high support needs, cameras can also serve a wellness role — carers or family members can check in remotely without interrupting the resident's routine. This balance of safety and privacy is something Innogreen takes seriously; all camera placements are discussed and agreed upon with residents.\n\nInnogreen's CCTV solutions integrate seamlessly with smart doorbells, locks, and alert systems to create a complete, connected security ecosystem.`,
+    features: [
+      "HD cameras with night vision",
+      "Live view and recorded footage via app",
+      "Motion detection with instant alerts",
+      "Indoor and outdoor models available",
+      "Cloud or local storage options",
+      "Integrates with smart locks and doorbells",
+    ],
+  },
+  {
+    image: "/images/Create_a_premium_commercial-grade_lifestyle_image_-1775651549950.png",
+    imageAlt: "Automated roller shutters with smart home wall controller",
+    title: "Automated Roller Shutters & Smart Blinds",
+    summary:
+      "Control light, privacy, and temperature at the touch of a button — or automatically on a schedule.",
+    body: `Managing curtains, blinds, and shutters manually can be physically demanding or simply impossible for many people with disabilities. Motorised shutters and smart blinds remove that challenge entirely. With a voice command, app tap, or set schedule, your home environment adjusts itself.\n\nThis is especially valuable in Perth's warm climate, where managing heat and glare directly impacts comfort, energy bills, and quality of sleep. Smart shutters can be programmed to close at midday to keep rooms cool and open again in the evening — automatically.\n\nFor SDA and NDIS participants, this kind of environmental control supports daily routines and reduces the need for carer assistance with basic tasks. Innogreen installs and programs all systems to match each resident's lifestyle and preferences.`,
+    features: [
+      "Voice, app, or wall-switch control",
+      "Automated schedules for time-of-day or sun position",
+      "Reduces heat and glare — energy-efficient",
+      "Suitable for windows, doors, and external openings",
+      "Quiet motor systems for minimal disruption",
+      "Can be integrated with climate control systems",
+    ],
+  },
+  {
+    image: "/images/Create_a_premium_commercial-grade_in-home_marketin-1775651548127.png",
+    imageAlt: "Outdoor security cameras and roller shutters on residential building at dusk",
+    title: "Complete Outdoor Security System",
+    summary:
+      "A fully integrated outdoor security setup — cameras, shutters, and smart lighting working together.",
+    body: `True home security isn't just one product — it's a system. Innogreen designs and installs complete outdoor security setups that combine CCTV cameras, automated roller shutters, smart lighting, and motion-activated alerts into one unified, easy-to-manage system.\n\nFor NDIS participants and SDA residents, a secure outdoor environment means greater confidence in living independently. Knowing that your home is monitored and protected — and that you can control it all from a single app or voice assistant — removes a significant source of stress and anxiety.\n\nInnogreen's team handles the full installation, programming, and training. We also provide ongoing technical support, so if something changes or needs adjusting, help is always a phone call away. As a registered NDIS supplier, we can work alongside your support coordinator to identify the right funding pathway for your setup.`,
+    features: [
+      "Multi-camera outdoor coverage",
+      "Automated shutters for perimeter security",
+      "Smart lighting with motion-triggered activation",
+      "Centralised control via single app or voice",
+      "24/7 remote monitoring capability",
+      "Ongoing support from a registered NDIS supplier",
+    ],
+  },
+];
+
+function FeatureCard({ card }: { card: (typeof featureCards)[0] }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="overflow-hidden rounded-xl border border-brand-border bg-white shadow-sm transition-shadow hover:shadow-md">
+      <div className="relative h-52 w-full overflow-hidden">
+        <Image
+          src={card.image}
+          alt={card.imageAlt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-lg font-semibold text-brand-slate">{card.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-brand-gray">
+          {card.summary}
+        </p>
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="mt-4 flex items-center gap-2 text-sm font-semibold text-brand-teal transition-colors hover:text-brand-teal-dark"
+          aria-expanded={isOpen}
+        >
+          {isOpen ? "Show less" : "Learn more"}
+          <IoChevronDownOutline
+            className={`h-4 w-4 transition-transform duration-300 ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-in-out ${
+            isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="mt-4 border-t border-brand-border pt-4">
+            {card.body.split("\n\n").map((para, i) => (
+              <p
+                key={i}
+                className="mb-3 text-sm leading-relaxed text-brand-gray"
+              >
+                {para}
+              </p>
+            ))}
+            <ul className="mt-4 space-y-2" role="list">
+              {card.features.map((feature) => (
+                <li
+                  key={feature}
+                  className="flex items-start gap-2 text-sm text-brand-gray"
+                >
+                  <IoCheckmarkCircleOutline className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const faqs = [
   {
     question: "Is smart home technology covered by NDIS funding?",
@@ -232,7 +380,7 @@ export default function SmartHomesContent() {
                 href="/contact"
                 className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-8 py-3 text-base font-semibold text-white transition-all hover:bg-brand-teal-dark"
               >
-                Get a Free Consultation
+                Get a Free Quote
               </Link>
               <a
                 href="tel:1800123000"
@@ -245,9 +393,63 @@ export default function SmartHomesContent() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* In-Depth Feature Cards with Images */}
       <section
         className="bg-white py-20 lg:py-28"
+        aria-labelledby="feature-cards-heading"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="mb-4 text-center">
+            <span className="inline-block rounded-full bg-brand-teal/10 px-4 py-1 text-sm font-semibold text-brand-teal">
+              Registered NDIS Supplier
+            </span>
+          </AnimatedSection>
+          <AnimatedSection className="mb-12 text-center">
+            <h2
+              id="feature-cards-heading"
+              className="text-3xl font-bold text-brand-slate sm:text-4xl"
+            >
+              Technology That Changes Lives
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-gray">
+              Smart home technology isn&apos;t just about convenience — for people
+              living with disability, it can mean the difference between needing
+              support for every small task and living with genuine independence.
+              As a registered NDIS supplier, Innogreen brings these solutions
+              directly to NDIS participants and SDA residents in Perth.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featureCards.map((card, index) => (
+              <AnimatedSection key={card.title} delay={index * 0.08}>
+                <FeatureCard card={card} />
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection className="mt-12 text-center" delay={0.3}>
+            <p className="mx-auto max-w-2xl text-base text-brand-gray">
+              Every solution Innogreen installs is tailored to the individual.
+              We work with your support coordinator, occupational therapist, and
+              family to design a smart home system that fits your life — not a
+              one-size-fits-all package.
+            </p>
+            <div className="mt-6">
+              <a
+                href="/contact"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-8 py-3 text-base font-semibold text-white transition-all hover:bg-brand-teal-dark"
+              >
+                Get a Free Quote
+              </a>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section
+        className="bg-brand-bg-alt py-20 lg:py-28"
         aria-labelledby="smart-services-heading"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -267,7 +469,7 @@ export default function SmartHomesContent() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <AnimatedSection key={service.title} delay={index * 0.1}>
-                <div className="card-hover flex h-full flex-col rounded-xl border border-brand-border bg-brand-bg-alt p-6">
+                <div className="card-hover flex h-full flex-col rounded-xl border border-brand-border bg-white p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-teal/10">
                     <service.icon className="h-6 w-6 text-brand-teal" />
                   </div>
@@ -295,9 +497,39 @@ export default function SmartHomesContent() {
         </div>
       </section>
 
+      {/* Voice Control Visual */}
+      <section className="relative overflow-hidden bg-brand-slate">
+        <div className="relative h-72 w-full sm:h-80">
+          <Image
+            src="/images/smart-home-voice.jpg"
+            alt="Amazon Echo smart speaker with voice assistant for hands-free home automation"
+            fill
+            className="object-cover object-center opacity-35"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 flex items-center justify-center text-center">
+            <div className="px-4 sm:px-6">
+              <AnimatedSection>
+                <p className="text-sm font-semibold uppercase tracking-widest text-brand-teal-light">
+                  Voice-First Technology
+                </p>
+                <h2 className="mx-auto mt-3 max-w-xl text-2xl font-bold text-white sm:text-3xl">
+                  &ldquo;Hey Alexa, turn on the lights.&rdquo;
+                  <br />
+                  <span className="text-lg font-normal text-white/70">That&rsquo;s independence.</span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/70 sm:text-base">
+                  Compatible with Amazon Alexa, Google Home, and Apple HomeKit — set up and programmed by our team for your exact needs.
+                </p>
+              </AnimatedSection>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process */}
       <section
-        className="bg-brand-bg-alt py-20 lg:py-28"
+        className="bg-white py-20 lg:py-28"
         aria-labelledby="process-heading"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -373,15 +605,17 @@ export default function SmartHomesContent() {
               Ready to Make Your Home Smarter?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-white/90">
-              Contact us for a free consultation and discover how smart home
-              technology can enhance your independence and quality of life.
+              Innogreen is a registered NDIS supplier. Get a free quote today
+              and discover how smart home technology can give you greater
+              independence, safety, and quality of life — funded through your
+              NDIS plan where eligible.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/contact"
                 className="inline-flex min-h-[44px] items-center rounded-lg bg-white px-8 py-3 text-base font-semibold text-brand-teal transition-all hover:bg-gray-50"
               >
-                Contact Us Today
+                Get a Free Quote
               </Link>
               <a
                 href="tel:1800123000"

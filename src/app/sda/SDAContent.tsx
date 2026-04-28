@@ -32,6 +32,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 3,
     image: "/images/Armadale.png",
+    url: "https://innogreenhomes.com.au/armadale",
     features: [
       "3 accessible bedrooms with ensuites",
       "Onsite Overnight Assistance (OOA) room",
@@ -48,6 +49,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 3,
     image: "/images/Baldivis.png",
+    url: "https://innogreenhomes.com.au/baldivis",
     features: [
       "3 accessible bedrooms with ensuites",
       "Onsite Overnight Assistance (OOA) room",
@@ -64,6 +66,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 2,
     image: "/images/Leederville.png",
+    url: "https://innogreenhomes.com.au/leederville",
     features: [
       "Single occupancy accessible living",
       "Ducted AC with zone control",
@@ -80,6 +83,7 @@ const properties = [
     type: "High Physical Support",
     bedrooms: 2,
     image: "/images/Morley.png",
+    url: "https://innogreenhomes.com.au/morley",
     features: [
       "8 brand-new SDA apartments",
       "Fully furnished with white goods",
@@ -341,12 +345,14 @@ export default function SDAContent() {
                       ))}
                     </ul>
 
-                    <Link
-                      href="/contact"
+                    <a
+                      href={property.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-3 sm:mt-4 inline-flex min-h-[36px] sm:min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-brand-teal-dark"
                     >
-                      Enquire
-                    </Link>
+                      More details
+                    </a>
                   </div>
                 </div>
               </AnimatedSection>
@@ -419,6 +425,35 @@ export default function SDAContent() {
                 </div>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Accessible Bathroom Visual */}
+      <section className="relative overflow-hidden">
+        <div className="relative h-80 w-full sm:h-96">
+          <Image
+            src="/images/Web Image 7.png"
+            alt="Spacious accessible roll-in shower with grab rails in an Innogreen SDA property"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-slate/80 via-brand-slate/50 to-transparent" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <AnimatedSection>
+                <p className="text-sm font-semibold uppercase tracking-widest text-brand-green-light">
+                  Purpose-Built Design
+                </p>
+                <h2 className="mt-2 max-w-md text-2xl font-bold text-white sm:text-3xl">
+                  Accessible Bathrooms Built for Real Independence
+                </h2>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/80 sm:text-base">
+                  Roll-in showers, ceiling-height grab rails, and wide clearances — every Innogreen bathroom is designed with residents, not just for compliance.
+                </p>
+              </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>
