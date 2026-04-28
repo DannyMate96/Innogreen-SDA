@@ -3,8 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      // Old home path
+      // Old home/cart paths
       { source: "/home", destination: "/", permanent: true },
+      { source: "/cart", destination: "/", permanent: true },
 
       // About page rename
       { source: "/about-us", destination: "/about", permanent: true },
