@@ -36,6 +36,8 @@ const nextConfig: NextConfig = {
       { source: "/queenspark/", destination: "/sda-vacancies", permanent: true },
       { source: "/morley", destination: "/sda-vacancies", permanent: true },
       { source: "/baldivis", destination: "/sda-vacancies", permanent: true },
+      { source: "/leederville", destination: "/sda-vacancies", permanent: true },
+      { source: "/armadale", destination: "/sda-vacancies", permanent: true },
 
       // Old PDF paths (Squarespace /s/ paths) → relevant pages
       {
