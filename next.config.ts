@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      // Serve the static seniors landing page at the clean /seniors URL
+      { source: "/seniors", destination: "/seniors/index.html" },
+    ];
+  },
+
   async redirects() {
     return [
       // Old home/cart paths
