@@ -150,6 +150,7 @@ export default function AboutContent() {
                   alt="Innogreen team working on smart home solutions"
                   width={600}
                   height={400}
+                  loading="eager"
                   className="h-auto w-full rounded-2xl object-cover"
                 />
               </div>

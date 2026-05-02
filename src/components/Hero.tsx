@@ -43,6 +43,7 @@ export default function Hero() {
           fill
           className="object-cover"
           priority
+          loading="eager"
           quality={85}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-slate/90 via-brand-slate/75 to-brand-slate/50" />
