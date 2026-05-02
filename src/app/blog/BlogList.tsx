@@ -9,6 +9,10 @@ import { HiOutlineNewspaper } from "react-icons/hi";
 
 const CATEGORIES: ("All" | BlogCategory)[] = ["All", "Smart Homes", "SDA", "OT", "NDIS"];
 
+const CATEGORIES: ("All" | BlogCategory)[] = ["All", "Smart Homes", "SDA", "OT", "NDIS"];
+
+const router = useRouter();
+
 export default function BlogList({ posts }: { posts: BlogPostMeta[] }) {
   const [activeCategory, setActiveCategory] = useState<"All" | BlogCategory>("All");
 
@@ -68,7 +72,10 @@ export default function BlogList({ posts }: { posts: BlogPostMeta[] }) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filtered.map((post) => (
                 <AnimatedSection key={post.slug}>
-                  <Link href={`/blog/${post.slug}`} className="group block h-full">
+                  <div
+                    onClick={() => router.push(`/blog/${post.slug}`)}
+                    className="group block h-full cursor-pointer"
+                  >
                     <div className="bg-white rounded-2xl border border-brand-border p-6 h-full flex flex-col card-hover">
                       {/* Category Badge */}
                       <div className="mb-4">
@@ -98,7 +105,7 @@ export default function BlogList({ posts }: { posts: BlogPostMeta[] }) {
                         </span>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
