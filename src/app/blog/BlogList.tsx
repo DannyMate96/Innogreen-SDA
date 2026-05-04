@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import AnimatedSection from "@/components/AnimatedSection";
 import { BlogPostMeta, BlogCategory, categoryColors, formatDate } from "@/lib/blog-types";
 import { useState } from "react";
@@ -9,11 +10,8 @@ import { HiOutlineNewspaper } from "react-icons/hi";
 
 const CATEGORIES: ("All" | BlogCategory)[] = ["All", "Smart Homes", "SDA", "OT", "NDIS"];
 
-const CATEGORIES: ("All" | BlogCategory)[] = ["All", "Smart Homes", "SDA", "OT", "NDIS"];
-
-const router = useRouter();
-
 export default function BlogList({ posts }: { posts: BlogPostMeta[] }) {
+  const router = useRouter();
   const [activeCategory, setActiveCategory] = useState<"All" | BlogCategory>("All");
 
   const filtered =

@@ -1,0 +1,17 @@
+{
+  "status": "init",
+  "scope": "codebase",
+  "type": "frontend",
+  "localEndpoint": "http://localhost:3000/",
+  "serverPort": 63763,
+  "executionArgs": {
+    "projectName": "innogreen-website",
+    "projectPath": "C:\\Users\\midmi\\AI Projects\\01_Projects_Professional\\innogreen-website",
+    "testIds": [],
+    "additionalInstruction": "Test all main pages: homepage (/), contact form submission, blog listing and blog posts, about page, and navigation. Ensure all links work and forms can be submitted.",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-3Gee4lFX6cDCAdj_ahqmNeHTIqis4HOIWKkJPd9NBlh87SpeKzg3cIQEh4mB1alD2k-mWpVrhA56Zx0MDknII9zu1ViEqcWNjSen9IdOzRLTeTYbVpStUc_Al9E8PjKeutc"
+    }
+  }
+}
