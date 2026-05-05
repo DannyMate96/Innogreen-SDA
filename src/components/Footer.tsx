@@ -11,13 +11,27 @@ import {
 
 const services = [
   { href: "/smart-homes", label: "Smart Homes" },
-  { href: "/sda", label: "Specialist Disability Accommodation" },
-  { href: "/smart-homes", label: "Property Management" },
-  { href: "/smart-homes", label: "Technology Installation" },
+  {
+    href: "/sda",
+    label: "Specialist Disability Accommodation",
+    children: [
+      { href: "/sda/armadale", label: "Armadale" },
+      { href: "/sda/baldivis", label: "Baldivis" },
+      { href: "/sda/leederville", label: "Leederville" },
+      { href: "/sda/morley", label: "Morley" },
+    ],
+  },
+  { href: "/sda-vacancies", label: "SDA Vacancies" },
+  { href: "/support-coordinators", label: "Support Coordinators" },
+  { href: "/property-management", label: "Property Management" },
+  { href: "/seniors/", label: "Senior Doorbell" },
 ];
 
 const quickLinks = [
   { href: "/about", label: "About Us" },
+  { href: "/ndis-funding-guide", label: "NDIS Funding Guide" },
+  { href: "/ot-resource-centre", label: "OT Resource Centre" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
   { href: "/policies", label: "Policies" },
 ];
@@ -82,6 +96,20 @@ export default function Footer() {
                   >
                     {item.label}
                   </Link>
+                  {"children" in item && item.children && (
+                    <ul className="ml-3 mt-1.5 space-y-1.5 border-l-2 border-brand-teal/20 pl-3">
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="text-xs text-gray-400 transition-colors hover:text-brand-teal"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>

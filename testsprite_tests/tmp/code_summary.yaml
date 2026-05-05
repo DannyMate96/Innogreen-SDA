@@ -1,0 +1,154 @@
+version: "2"
+type: frontend
+tech_stack:
+  - language: TypeScript
+  - framework: Next.js 16.1.6 (App Router)
+  - ui_library: React 19.2.3 + Tailwind CSS 4
+  - other: Framer Motion, React Icons, Resend, MDX Remote, Vercel Analytics
+
+routes:
+  - path: /
+    file: src/app/page.tsx
+    auth_required: false
+    description: Homepage with hero sections and service cards
+  - path: /about
+    file: src/app/about/page.tsx
+    auth_required: false
+    description: About Innogreen company page
+  - path: /contact
+    file: src/app/contact/page.tsx
+    auth_required: false
+    description: Contact form with multi-step fields
+  - path: /blog
+    file: src/app/blog/page.tsx
+    auth_required: false
+    description: Blog listing page with all posts
+  - path: /blog/[slug]
+    file: src/app/blog/[slug]/page.tsx
+    auth_required: false
+    description: Individual blog post page with MDX content
+  - path: /sda
+    file: src/app/sda/page.tsx
+    auth_required: false
+    description: Specialist Disability Accommodation information
+  - path: /smart-homes
+    file: src/app/smart-homes/page.tsx
+    auth_required: false
+    description: Smart home technology solutions
+  - path: /ot-resource-centre
+    file: src/app/ot-resource-centre/page.tsx
+    auth_required: false
+    description: Occupational therapy resources
+  - path: /property-management
+    file: src/app/property-management/page.tsx
+    auth_required: false
+    description: Property management services
+  - path: /sda-vacancies
+    file: src/app/sda-vacancies/page.tsx
+    auth_required: false
+    description: Available SDA vacancies listing
+  - path: /support-coordinators
+    file: src/app/support-coordinators/page.tsx
+    auth_required: false
+    description: Resources for support coordinators
+  - path: /ndis-funding-guide
+    file: src/app/ndis-funding-guide/page.tsx
+    auth_required: false
+    description: NDIS funding guide
+  - path: /policies
+    file: src/app/policies/page.tsx
+    auth_required: false
+    description: Company policies
+
+features:
+  - name: Contact Form
+    description: Multi-step contact form with conditional fields for different enquirer types
+    files:
+      - src/app/contact/ContactContent.tsx
+      - src/app/api/contact/route.ts
+    entry_route: /contact
+    user_interactions:
+      - Select enquirer type from dropdown
+      - Fill name, email, phone fields
+      - Select subject
+      - Enter message
+      - Click submit button
+      - See success message or error
+    api_calls:
+      - method: POST
+        endpoint: /api/contact
+    auth_required: false
+  - name: Blog System
+    description: MDX-based blog with categories, related posts, and sharing
+    files:
+      - src/app/blog/page.tsx
+      - src/app/blog/[slug]/page.tsx
+      - src/app/blog/BlogList.tsx
+      - src/lib/blog.ts
+    entry_route: /blog
+    user_interactions:
+      - Browse blog listing
+      - Click blog post to read
+      - Share post via social buttons
+      - View related posts
+    api_calls: []
+    auth_required: false
+  - name: Seniors Lead Form
+    description: Simple lead capture form for seniors interested in smart home solutions
+    files:
+      - src/app/api/seniors-lead/route.ts
+    entry_route: / (likely embedded in homepage)
+    user_interactions:
+      - Enter name
+      - Enter email
+      - Enter phone
+      - Enter address
+      - Submit form
+    api_calls:
+      - method: POST
+        endpoint: /api/seniors-lead
+    auth_required: false
+  - name: Site Navigation
+    description: Global navigation across all pages with mobile menu
+    files:
+      - src/components/Navigation.tsx
+      - src/app/layout.tsx
+    entry_route: /
+    user_interactions:
+      - Click navigation links
+      - Open/close mobile menu
+      - Use skip to main content link (accessibility)
+    api_calls: []
+    auth_required: false
+  - name: Hero Sections
+    description: Multiple hero sections with animations on different pages
+    files:
+      - src/components/Hero.tsx
+      - src/app/page.tsx
+    entry_route: /
+    user_interactions:
+      - View animated hero content
+      - Scroll to content sections
+    api_calls: []
+    auth_required: false
+  - name: Video Components
+    description: Video players embedded on pages (likely for seniors hero scroll)
+    files:
+      - src/components/VideoPlayer.tsx (inferred from git commits)
+    entry_route: /
+    user_interactions:
+      - Play/pause videos
+      - Watch autoplay videos on scroll
+    api_calls: []
+    auth_required: false
+
+known_limitations:
+  - issue: Contact form and seniors lead form depend on external APIs (Resend, Google Sheets) - if these services are down, forms will fail
+    location: src/app/api/contact/route.ts, src/app/api/seniors-lead/route.ts
+    impact: Users may not be able to submit forms during API outages
+  - issue: Limited client-side form validation - relies mostly on HTML5 required attributes and basic email regex
+    location: src/app/contact/ContactContent.tsx
+    impact: Some invalid data may pass through to server
+  - issue: No offline fallback for form submissions
+    location: src/app/api/contact/route.ts
+    impact: If user is offline, no way to queue submissions

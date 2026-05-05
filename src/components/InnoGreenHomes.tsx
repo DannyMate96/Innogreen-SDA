@@ -78,8 +78,7 @@ export default function InnoGreenHomes() {
             Explore Innogreen Homes &rarr;
           </Link>
           <p className="mt-4 text-sm text-white/70">
-            Innogreen Homes is a licensed real estate agency (RA82486) and REIWA
-            member
+            Licensed real estate agency and REIWA member
           </p>
         </AnimatedSection>
       </div>

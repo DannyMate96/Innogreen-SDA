@@ -81,7 +81,13 @@ const team = [
     name: "Arian David Gorjy",
     role: "Director & Licencee",
     license: "RA72601",
-    bio: "With extensive experience in property management and a passion for accessible housing, Arian leads Innogreen's mission to create smart, accessible homes across Perth. His vision combines innovative technology with genuine care for residents' independence.",
+    email: "arian@innogreen.net.au",
+    image: "/images/Arian.jpg",
+    bio: "With 15+ years of experience in property management and accessible housing, Arian leads Innogreen's mission to create smart, accessible homes across Perth. His deep expertise and passion for inclusive living drives the company's vision to combine innovative technology with genuine care for residents' independence.",
+    stats: [
+      { label: "Years Experience", value: "15+" },
+      { label: "Properties Managed", value: "100+" },
+    ],
   },
 ];
 
@@ -144,6 +150,7 @@ export default function AboutContent() {
                   alt="Innogreen team working on smart home solutions"
                   width={600}
                   height={400}
+                  loading="eager"
                   className="h-auto w-full rounded-2xl object-cover"
                 />
               </div>
@@ -231,27 +238,72 @@ export default function AboutContent() {
             </h2>
           </AnimatedSection>
 
-          <div className="mx-auto max-w-2xl">
+          <div className="mx-auto max-w-3xl">
             {team.map((member, index) => (
               <AnimatedSection key={member.name} delay={index * 0.1}>
-                <div className="rounded-2xl border border-brand-border bg-brand-bg-alt p-8 text-center">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-teal/10">
-                    <IoPeopleOutline className="h-10 w-10 text-brand-teal" />
+                <div className="overflow-hidden rounded-2xl border border-brand-border bg-white shadow-md">
+                  {/* Top accent bar */}
+                  <div className="h-2 gradient-bg" />
+
+                  <div className="flex flex-col items-center gap-8 p-8 sm:flex-row sm:items-start sm:text-left">
+                    {/* Photo */}
+                    <div className="shrink-0">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={144}
+                        height={144}
+                        className="h-36 w-36 rounded-full object-cover ring-4 ring-brand-teal/20 ring-offset-2"
+                      />
+                    </div>
+
+                    {/* Details */}
+                    <div className="flex-1 text-center sm:text-left">
+                      <h3 className="text-2xl font-bold text-brand-slate">
+                        {member.name}
+                      </h3>
+                      <p className="mt-1 text-base font-semibold text-brand-teal">
+                        {member.role}
+                      </p>
+                      {member.license && (
+                        <p className="mt-1 text-xs text-brand-gray-light">
+                          Licence: {member.license}
+                        </p>
+                      )}
+
+                      {/* Stats */}
+                      <div className="mt-4 flex flex-wrap justify-center gap-3 sm:justify-start">
+                        {member.stats.map((stat) => (
+                          <div
+                            key={stat.label}
+                            className="rounded-lg bg-brand-teal/10 px-4 py-2 text-center"
+                          >
+                            <p className="text-lg font-bold text-brand-teal">
+                              {stat.value}
+                            </p>
+                            <p className="text-xs text-brand-gray">
+                              {stat.label}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+
+                      <p className="mt-5 text-base leading-relaxed text-brand-gray">
+                        {member.bio}
+                      </p>
+
+                      {/* Email */}
+                      {member.email && (
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="mt-5 inline-flex items-center gap-2 rounded-lg border border-brand-teal/30 bg-brand-teal/5 px-4 py-2 text-sm font-medium text-brand-teal transition-colors hover:bg-brand-teal/10"
+                        >
+                          <IoMailOutline className="h-4 w-4" />
+                          {member.email}
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-xl font-bold text-brand-slate">
-                    {member.name}
-                  </h3>
-                  <p className="mt-1 text-sm font-medium text-brand-teal">
-                    {member.role}
-                  </p>
-                  {member.license && (
-                    <p className="mt-1 text-xs text-brand-gray-light">
-                      License: {member.license}
-                    </p>
-                  )}
-                  <p className="mt-4 text-base leading-relaxed text-brand-gray">
-                    {member.bio}
-                  </p>
                 </div>
               </AnimatedSection>
             ))}

@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { track } from "@vercel/analytics";
 import AnimatedSection from "@/components/AnimatedSection";
 import {
   IoCallOutline,
@@ -43,25 +45,74 @@ const contactInfo = [
 const subjects = [
   "Smart Homes",
   "SDA Enquiry",
+  "SDA Vacancy Enquiry",
+  "SDA Waitlist",
   "Property Management",
-  "Seniors Services",
   "General Enquiry",
 ];
 
-export default function ContactContent() {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+const enquirerTypes = [
+  "NDIS Participant",
+  "Carer / Family Member",
+  "Support Coordinator",
+  "Builder / Developer",
+  "Other",
+];
 
-  const handleSubmit = (e: FormEvent) => {
+const emptyForm = {
+  name: "",
+  email: "",
+  phone: "",
+  subject: "",
+  enquirerType: "",
+  supportNeed: "",
+  message: "",
+};
+
+export default function ContactContent() {
+  const searchParams = useSearchParams();
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState(emptyForm);
+
+  useEffect(() => {
+    const subjectParam = searchParams.get("subject");
+    if (subjectParam) {
+      setFormData((prev) => ({ ...prev, subject: subjectParam }));
+    }
+  }, [searchParams]);
+
+  const handleSubmit = async (e: { preventDefault(): void }) => {
     e.preventDefault();
-    // In production, this would send to an API endpoint
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    setLoading(false);
+
+    if (res.ok) {
+      track("contact_form_submitted", {
+        enquirer_type: formData.enquirerType,
+        subject: formData.subject,
+      });
+      setSubmitted(true);
+    } else {
+      let errMsg = "Something went wrong. Please try again or email us directly.";
+      try {
+        const body = await res.json();
+        if (body?.detail?.message) errMsg += ` (${body.detail.message})`;
+        else if (body?.error) errMsg += ` (${body.error})`;
+      } catch {
+        // ignore parse error
+      }
+      setError(errMsg);
+    }
   };
 
   return (
@@ -108,16 +159,7 @@ export default function ContactContent() {
                       within 1 business day.
                     </p>
                     <button
-                      onClick={() => {
-                        setSubmitted(false);
-                        setFormData({
-                          name: "",
-                          email: "",
-                          phone: "",
-                          subject: "",
-                          message: "",
-                        });
-                      }}
+                      onClick={() => { setSubmitted(false); setFormData(emptyForm); }}
                       className="mt-6 rounded-lg bg-brand-teal px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-teal-dark"
                     >
                       Send Another Message
@@ -125,6 +167,56 @@ export default function ContactContent() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                    {/* Enquirer type */}
+                    <div>
+                      <label
+                        htmlFor="enquirerType"
+                        className="mb-2 block text-sm font-medium text-brand-slate"
+                      >
+                        I am a… <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="enquirerType"
+                        name="enquirerType"
+                        required
+                        value={formData.enquirerType}
+                        onChange={(e) =>
+                          setFormData({ ...formData, enquirerType: e.target.value, supportNeed: "" })
+                        }
+                        className="w-full rounded-lg border border-brand-border bg-brand-bg-alt px-4 py-3 text-base text-brand-slate transition-colors focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+                      >
+                        <option value="">Select your role</option>
+                        {enquirerTypes.map((type) => (
+                          <option key={type} value={type}>
+                            {type}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Support Coordinator — extra field */}
+                    {formData.enquirerType === "Support Coordinator" && (
+                      <div>
+                        <label
+                          htmlFor="supportNeed"
+                          className="mb-2 block text-sm font-medium text-brand-slate"
+                        >
+                          Client&apos;s primary support need
+                        </label>
+                        <input
+                          type="text"
+                          id="supportNeed"
+                          name="supportNeed"
+                          value={formData.supportNeed}
+                          onChange={(e) =>
+                            setFormData({ ...formData, supportNeed: e.target.value })
+                          }
+                          className="w-full rounded-lg border border-brand-border bg-brand-bg-alt px-4 py-3 text-base text-brand-slate placeholder-brand-gray-light transition-colors focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+                          placeholder="e.g. High physical support, SDA housing, assistive technology"
+                        />
+                      </div>
+                    )}
+
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div>
                         <label
@@ -239,12 +331,16 @@ export default function ContactContent() {
                       />
                     </div>
 
+                    {error && (
+                      <p className="text-sm text-red-600">{error}</p>
+                    )}
                     <button
                       type="submit"
-                      className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-brand-teal px-8 py-3 text-base font-semibold text-white transition-all hover:bg-brand-teal-dark"
+                      disabled={loading}
+                      className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-brand-teal px-8 py-3 text-base font-semibold text-white transition-all hover:bg-brand-teal-dark disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       <IoSendOutline className="h-5 w-5" />
-                      Send Message
+                      {loading ? "Sending…" : "Send Message"}
                     </button>
                   </form>
                 )}
