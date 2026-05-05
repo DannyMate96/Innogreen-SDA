@@ -412,11 +412,19 @@ const properties: PropertyInfo[] = [
     ],
     gallery: [
       { src: "/images/properties/leederville/hero.jpg", alt: "The Milano Leederville exterior" },
+      { src: "/images/properties/leederville/1.png", alt: "The Milano Leederville interior" },
+      { src: "/images/properties/leederville/7.png", alt: "The Milano Leederville living area" },
+      { src: "/images/properties/leederville/8.png", alt: "The Milano Leederville kitchen" },
+      { src: "/images/properties/leederville/11.png", alt: "The Milano Leederville bedroom" },
+      { src: "/images/properties/leederville/12.png", alt: "The Milano Leederville bathroom" },
+      { src: "/images/properties/leederville/13.png", alt: "The Milano Leederville accessible bathroom" },
+      { src: "/images/properties/leederville/16.png", alt: "The Milano Leederville hallway" },
+      { src: "/images/properties/leederville/17.png", alt: "The Milano Leederville detail" },
     ],
     floorplans: [
       {
-        src: "/images/properties/leederville/floorplan.jpg",
-        alt: "Leederville apartment floorplan - single resident",
+        src: "/images/properties/leederville/Floorplans - 2_212 Carr Pl, Leederville WA-Arian-Lenovo-Laptop.jpg",
+        alt: "Leederville apartment floorplan",
       },
     ],
     virtualTourUrl: "https://my.matterport.com/show/?m=example",
