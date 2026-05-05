@@ -69,7 +69,7 @@ export default function PropertyPageTemplate({ property }: { property: PropertyI
   return (
     <div className="min-h-screen bg-white">
       {/* Breadcrumb Header */}
-      <section className="bg-brand-slate py-12 lg:py-16">
+      <section className="bg-brand-slate py-8 lg:py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link
             href="/sda"
@@ -138,7 +138,7 @@ export default function PropertyPageTemplate({ property }: { property: PropertyI
 
       {/* Hero Image */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="-mt-8 overflow-hidden rounded-2xl shadow-xl">
+        <div className="overflow-hidden rounded-2xl shadow-xl">
           <div className="relative aspect-[21/9]">
             <Image
               src={property.heroImage}
@@ -188,18 +188,6 @@ export default function PropertyPageTemplate({ property }: { property: PropertyI
             ))}
           </div>
 
-          {property.virtualTourUrl && (
-            <AnimatedSection className="mt-10 text-center">
-              <a
-                href={property.virtualTourUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-8 py-3 text-base font-semibold text-white transition-all hover:bg-brand-teal-dark"
-              >
-                View 3D Virtual Tour
-              </a>
-            </AnimatedSection>
-          )}
         </div>
       </section>
 
@@ -285,7 +273,7 @@ export default function PropertyPageTemplate({ property }: { property: PropertyI
           <AnimatedSection>
             <div className="rounded-2xl border border-brand-border bg-white p-6 sm:p-8">
               {property.specifications.map((spec, index) => (
-                <SpecAccordion key={spec.title} spec={spec} defaultOpen={index < 2} />
+                <SpecAccordion key={spec.title} spec={spec} defaultOpen={false} />
               ))}
             </div>
           </AnimatedSection>
