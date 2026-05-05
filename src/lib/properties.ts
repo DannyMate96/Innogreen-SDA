@@ -411,7 +411,6 @@ const properties: PropertyInfo[] = [
       },
     ],
     gallery: [
-      { src: "/images/properties/leederville/hero.jpg", alt: "The Milano Leederville exterior" },
       { src: "/images/properties/leederville/1.png", alt: "The Milano Leederville interior" },
       { src: "/images/properties/leederville/7.png", alt: "The Milano Leederville living area" },
       { src: "/images/properties/leederville/8.png", alt: "The Milano Leederville kitchen" },
