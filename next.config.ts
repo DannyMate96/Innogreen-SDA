@@ -34,13 +34,13 @@ const nextConfig: NextConfig = {
       { source: "/sda-available-now", destination: "/sda-vacancies", permanent: true },
       { source: "/rental-benefits", destination: "/property-management", permanent: true },
 
-      // Individual property location pages → vacancies list
+      // Individual property location pages → property detail pages
       { source: "/queenspark", destination: "/sda-vacancies", permanent: true },
       { source: "/queenspark/", destination: "/sda-vacancies", permanent: true },
-      { source: "/morley", destination: "/sda-vacancies", permanent: true },
-      { source: "/baldivis", destination: "/sda-vacancies", permanent: true },
-      { source: "/leederville", destination: "/sda-vacancies", permanent: true },
-      { source: "/armadale", destination: "/sda-vacancies", permanent: true },
+      { source: "/morley", destination: "/sda/morley", permanent: true },
+      { source: "/baldivis", destination: "/sda/baldivis", permanent: true },
+      { source: "/leederville", destination: "/sda/leederville", permanent: true },
+      { source: "/armadale", destination: "/sda/armadale", permanent: true },
 
       // Old PDF paths (Squarespace /s/ paths) → relevant pages
       {

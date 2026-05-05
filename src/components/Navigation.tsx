@@ -32,6 +32,30 @@ const servicesLinks = [
     icon: TbHome,
   },
   {
+    href: "/sda/armadale",
+    label: "Armadale SDA",
+    desc: "5 Winchester Road, Armadale",
+    icon: TbHome,
+  },
+  {
+    href: "/sda/baldivis",
+    label: "Baldivis SDA",
+    desc: "48 Butterleaf Road, Baldivis",
+    icon: TbHome,
+  },
+  {
+    href: "/sda/leederville",
+    label: "Leederville SDA",
+    desc: "212 Carr Place, Leederville",
+    icon: TbHome,
+  },
+  {
+    href: "/sda/morley",
+    label: "Morley SDA",
+    desc: "1 Mangini Street, Morley",
+    icon: TbHome,
+  },
+  {
     href: "/sda-vacancies",
     label: "SDA Vacancies",
     desc: "Currently available properties",

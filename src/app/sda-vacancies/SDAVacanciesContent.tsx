@@ -18,6 +18,7 @@ import { TbSmartHome, TbSolarPanel } from "react-icons/tb";
 const vacancies = [
   {
     name: "Armadale Residence",
+    slug: "armadale",
     suburb: "Armadale",
     sdaCategory: "High Physical Support",
     bedrooms: 3,
@@ -33,6 +34,7 @@ const vacancies = [
   },
   {
     name: "Butterleaf Retreat",
+    slug: "baldivis",
     suburb: "Baldivis",
     sdaCategory: "High Physical Support",
     bedrooms: 3,
@@ -48,6 +50,7 @@ const vacancies = [
   },
   {
     name: "Mangini Apartments Morley",
+    slug: "morley",
     suburb: "Morley",
     sdaCategory: "High Physical Support",
     bedrooms: 2,
@@ -182,10 +185,10 @@ export default function SDAVacanciesContent() {
                       </ul>
 
                       <Link
-                        href={`/contact?subject=SDA+Enquiry`}
+                        href={`/sda/${property.slug}`}
                         className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-brand-teal px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-brand-teal-dark"
                       >
-                        Enquire About This Property
+                        View Property Details
                       </Link>
                     </div>
                   </div>
